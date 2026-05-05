@@ -4,8 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/emporium-web',
-  assetPrefix: '/emporium-web',
   trailingSlash: true,
 }
 
