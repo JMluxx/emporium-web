@@ -6,9 +6,9 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { NeuralAnimation } from '@/components/NeuralAnimation'
 
 const proofPoints = [
-  'Sin contratos largos',
-  'ROI medible desde el mes 1',
-  'Implementación en días, no meses',
+  'Sin necesidad de equipo técnico propio',
+  'Transparencia total en cada proyecto',
+  'Soporte directo con los fundadores',
 ]
 
 export function HeroSection() {
