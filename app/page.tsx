@@ -51,12 +51,12 @@ const services = [
 ]
 
 const sectors = [
-  { icon: <Building2 size={20} />, name: 'Inmobiliario' },
-  { icon: <UtensilsCrossed size={20} />, name: 'Hostelería' },
-  { icon: <ShoppingBag size={20} />, name: 'Retail' },
-  { icon: <Stethoscope size={20} />, name: 'Clínicas y Salud' },
-  { icon: <Calculator size={20} />, name: 'Asesorías' },
-  { icon: <ShoppingCart size={20} />, name: 'E-commerce' },
+  { icon: <Building2 size={20} />, name: 'Inmobiliario', href: '/sectores/inmobiliario' },
+  { icon: <UtensilsCrossed size={20} />, name: 'Hostelería', href: '/sectores/hosteleria' },
+  { icon: <ShoppingBag size={20} />, name: 'Retail', href: '/sectores/retail' },
+  { icon: <Stethoscope size={20} />, name: 'Clínicas y Salud', href: '/sectores/clinicas' },
+  { icon: <Calculator size={20} />, name: 'Asesorías', href: '/sectores/asesorias' },
+  { icon: <ShoppingCart size={20} />, name: 'E-commerce', href: '/sectores/ecommerce' },
 ]
 
 const metrics = [
@@ -132,13 +132,36 @@ export default function HomePage() {
             {sectors.map((s, i) => (
               <Link
                 key={i}
-                href="/sectores"
+                href={s.href}
                 className="flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(0,194,203,0.15)] bg-ei-card hover:border-[rgba(0,194,203,0.4)] hover:bg-ei-card-hover text-ei-text text-sm font-medium transition-all duration-200 group"
               >
                 <span className="text-ei-accent">{s.icon}</span>
                 {s.name}
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Calculator teaser */}
+      <section className="section-padding bg-[#080a0e]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-ei-card rounded-2xl p-8 md:p-10 border border-[rgba(0,194,203,0.15)]">
+            <div className="flex-1">
+              <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-2">Calculadora ROI</p>
+              <h2 className="text-2xl md:text-3xl font-black text-ei-text mb-3 leading-tight">
+                ¿Cuánto te cuesta no automatizar?
+              </h2>
+              <p className="text-ei-muted text-sm leading-relaxed">
+                Calcula en 30 segundos cuántas horas y euros estás perdiendo cada mes en tareas que una IA puede hacer por ti.
+              </p>
+            </div>
+            <Link
+              href="/calculadora"
+              className="flex-shrink-0 inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-ei-accent text-[#0a0c10] font-black hover:bg-ei-accent-glow hover:shadow-glow transition-all duration-300"
+            >
+              Calcular mi ROI <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>

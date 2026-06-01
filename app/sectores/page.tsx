@@ -12,6 +12,8 @@ const sectors = [
   {
     icon: <Building2 size={32} />,
     name: 'Inmobiliario',
+    slug: 'inmobiliario',
+    hasDemo: true,
     tagline: 'Del portal al cliente cualificado, en automático',
     pain: 'Captás leads de portales distintos, los metes a mano en el CRM, haces seguimiento manual y muchos se enfrían antes de que puedas llamarles.',
     solution:
@@ -27,6 +29,8 @@ const sectors = [
   {
     icon: <UtensilsCrossed size={32} />,
     name: 'Hostelería',
+    slug: 'hosteleria',
+    hasDemo: false,
     tagline: 'Reservas, reseñas y fidelización sin levantar el teléfono',
     pain: 'Tu equipo pasa horas gestionando reservas, respondiendo reseñas de Google y enviando newsletters que nunca se escriben. Mientras tanto, las mesas se quedan vacías en días entre semana.',
     solution:
@@ -42,6 +46,8 @@ const sectors = [
   {
     icon: <ShoppingBag size={32} />,
     name: 'Retail',
+    slug: 'retail',
+    hasDemo: false,
     tagline: 'Stock, pedidos y atención al cliente sincronizados',
     pain: 'El stock físico no coincide con el online, los pedidos llegan por tres canales distintos y tu equipo pierde media mañana cuadrando hojas de cálculo.',
     solution:
@@ -57,6 +63,8 @@ const sectors = [
   {
     icon: <Stethoscope size={32} />,
     name: 'Clínicas y Salud',
+    slug: 'clinicas',
+    hasDemo: true,
     tagline: 'Citas, recordatorios y seguimiento de pacientes automatizados',
     pain: 'Tu recepcionista pasa el día al teléfono gestionando citas, tienes cancelaciones de última hora que se quedan sin cubrir y los pacientes no reciben seguimiento post-visita.',
     solution:
@@ -72,6 +80,8 @@ const sectors = [
   {
     icon: <Calculator size={32} />,
     name: 'Asesorías',
+    slug: 'asesorias',
+    hasDemo: true,
     tagline: 'Documentación, plazos y comunicaciones sin errores',
     pain: 'Los clientes no te envían la documentación a tiempo, te pasas el día recordándoles plazos y la gestión de expedientes se hace manualmente entre correos interminables.',
     solution:
@@ -87,6 +97,8 @@ const sectors = [
   {
     icon: <ShoppingCart size={32} />,
     name: 'E-commerce',
+    slug: 'ecommerce',
+    hasDemo: false,
     tagline: 'Pedidos, devoluciones y captación en piloto automático',
     pain: 'Gestionas pedidos manualmente en temporada alta, las devoluciones te cuestan más de lo que valen y abandonas carritos porque no hay tiempo para seguimiento.',
     solution:
@@ -126,17 +138,25 @@ export default function SectoresPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {sectors.map((sector, i) => (
-              <div
+              <Link
                 key={i}
-                className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] hover:border-[rgba(0,194,203,0.3)] transition-all duration-300 group"
+                href={`/sectores/${sector.slug}`}
+                className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] hover:border-[rgba(0,194,203,0.3)] transition-all duration-300 group block"
               >
                 {/* Icon + name */}
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-14 h-14 rounded-2xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent group-hover:bg-[rgba(0,194,203,0.18)] transition-colors">
                     {sector.icon}
                   </div>
-                  <div>
-                    <h2 className="text-xl font-black text-ei-text">{sector.name}</h2>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <h2 className="text-xl font-black text-ei-text">{sector.name}</h2>
+                      {sector.hasDemo && (
+                        <span className="px-2 py-0.5 rounded-full bg-[rgba(0,194,203,0.15)] text-ei-accent text-[10px] font-bold uppercase tracking-wider">
+                          Demo
+                        </span>
+                      )}
+                    </div>
                     <p className="text-ei-accent text-sm">{sector.tagline}</p>
                   </div>
                 </div>
@@ -158,7 +178,7 @@ export default function SectoresPage() {
                 </div>
 
                 {/* Benefits */}
-                <ul className="flex flex-col gap-1.5">
+                <ul className="flex flex-col gap-1.5 mb-5">
                   {sector.benefits.map((b, j) => (
                     <li key={j} className="flex items-start gap-2 text-xs text-ei-muted">
                       <span className="mt-0.5 w-3.5 h-3.5 rounded-full bg-[rgba(0,194,203,0.15)] flex items-center justify-center flex-shrink-0">
@@ -168,7 +188,11 @@ export default function SectoresPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+
+                <span className="inline-flex items-center gap-1 text-ei-accent text-xs font-semibold group-hover:gap-2 transition-all duration-200">
+                  Ver solución completa <ArrowRight size={12} />
+                </span>
+              </Link>
             ))}
           </div>
         </div>

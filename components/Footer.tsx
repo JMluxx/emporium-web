@@ -11,6 +11,7 @@ const navigation = {
   empresa: [
     { name: 'Sobre nosotros', href: '/sobre-nosotros' },
     { name: 'Sectores', href: '/sectores' },
+    { name: 'Calculadora ROI', href: '/calculadora' },
     { name: 'Beneficios', href: '/beneficios' },
     { name: 'Contacto', href: '/contacto' },
   ],

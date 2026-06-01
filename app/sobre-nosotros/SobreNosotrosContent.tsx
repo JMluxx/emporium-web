@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Target, Eye, Heart } from 'lucide-react'
+import { ArrowRight, Target, Eye, Heart, Clock, CheckCircle2, Zap, Users } from 'lucide-react'
 
 const team = [
   {
@@ -196,6 +196,135 @@ export function SobreNosotrosContent() {
                 <p className="text-ei-muted text-sm leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo trabajamos */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-ei-accent text-sm font-bold uppercase tracking-widest mb-3">
+              El proceso
+            </p>
+            <h2 className="text-4xl font-black text-ei-text mb-4">Cómo trabajamos</h2>
+            <p className="text-ei-muted max-w-xl mx-auto">
+              Sin proyectos de 6 meses ni consultoras que desaparecen. De la primera llamada a la automatización funcionando en semanas.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+            {[
+              {
+                step: '01',
+                icon: <Users size={20} />,
+                title: 'Diagnóstico gratuito',
+                desc: '15 minutos contigo para entender tus procesos, dónde pierdes tiempo y qué tiene más impacto automatizar primero.',
+              },
+              {
+                step: '02',
+                icon: <Target size={20} />,
+                title: 'Plan a medida',
+                desc: 'Te presentamos exactamente qué vamos a automatizar, cómo funciona y el ROI estimado. Sin compromiso.',
+              },
+              {
+                step: '03',
+                icon: <Zap size={20} />,
+                title: 'Implementación rápida',
+                desc: 'Arrancamos en días, no meses. Las primeras automatizaciones suelen estar operativas en 1-2 semanas.',
+              },
+              {
+                step: '04',
+                icon: <CheckCircle2 size={20} />,
+                title: 'Soporte continuo',
+                desc: 'No desaparecemos tras entregar. Ajustamos, mejoramos y añadimos nuevas automatizaciones a medida que creces.',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.1 }}
+                className="relative bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.12)]"
+              >
+                <span className="text-5xl font-black text-[rgba(0,194,203,0.08)] absolute top-4 right-5 leading-none select-none">
+                  {item.step}
+                </span>
+                <div className="w-10 h-10 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-base font-bold text-ei-text mb-2">{item.title}</h3>
+                <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Por qué nosotros */}
+      <section className="section-padding bg-[#080a0e]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-ei-accent text-sm font-bold uppercase tracking-widest mb-4">
+                Por qué Emporium IA
+              </p>
+              <h2 className="text-4xl font-black text-ei-text mb-6 leading-tight">
+                No somos una consultora.<br />Somos los que lo construyen.
+              </h2>
+              <div className="space-y-5 text-ei-muted leading-relaxed">
+                <p>
+                  Las consultoras grandes te venden estrategia. Luego subcontratan la ejecución, añaden capas de gestión y te presentan una factura que no esperabas.
+                </p>
+                <p>
+                  Nosotros somos dos personas que diseñan, construyen y mantienen cada automatización. Hablas directamente con quien hace el trabajo.
+                </p>
+                <p className="text-ei-text font-medium">
+                  Eso se traduce en menos coste, más velocidad y una interlocución que no cambia cada tres meses.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                {
+                  icon: <Clock size={18} />,
+                  title: 'Respuesta en menos de 24h',
+                  desc: 'Siempre. No hay cuenta de soporte ni bot intermedio.',
+                },
+                {
+                  icon: <Zap size={18} />,
+                  title: 'Stack tecnológico avanzado',
+                  desc: 'n8n, Claude API, Make, Zapier, Airtable, Supabase. Usamos las herramientas que mejor encajan con tu caso, no las que mejor conocemos.',
+                },
+                {
+                  icon: <Target size={18} />,
+                  title: 'Solo cobramos si funciona',
+                  desc: 'Si la automatización no genera el valor prometido, lo ajustamos sin coste hasta que lo haga.',
+                },
+                {
+                  icon: <Users size={18} />,
+                  title: 'Fundadores en cada proyecto',
+                  desc: 'David y José participan directamente en cada implementación. Sin juniors a los que explicarles el contexto cada vez.',
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-4 bg-ei-card rounded-xl p-5 border border-[rgba(0,194,203,0.1)]"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent flex-shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="text-ei-text text-sm font-bold mb-1">{item.title}</p>
+                    <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

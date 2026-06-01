@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react'
 
-// TODO: Regístrate en formspree.io, crea un formulario y reemplaza este ID por el tuyo
 const FORMSPREE_ID = 'mnjjqdvo'
 
 const sectors = [

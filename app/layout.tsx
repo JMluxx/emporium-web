@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://emporium-ia.es'),
   title: {
     default: 'Emporium IA — Automatizaciones con IA para PYMEs',
     template: '%s | Emporium IA',
@@ -17,18 +18,32 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Emporium IA' }],
   creator: 'Emporium IA',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
+    url: 'https://emporium-ia.es',
     siteName: 'Emporium IA',
     title: 'Emporium IA — Automatizaciones con IA para PYMEs',
     description:
       'Automatizamos los procesos de tu PYME con inteligencia artificial. Resultados medibles desde el mes 1.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Emporium IA — Automatizaciones con IA para PYMEs',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Emporium IA — Automatizaciones con IA para PYMEs',
     description: 'Automatizamos los procesos de tu PYME con inteligencia artificial.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
