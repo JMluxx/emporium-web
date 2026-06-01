@@ -10,7 +10,8 @@ const navigation = {
   ],
   empresa: [
     { name: 'Sobre nosotros', href: '/sobre-nosotros' },
-    { name: 'Sectores', href: '/sectores' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Integraciones', href: '/integraciones' },
     { name: 'Calculadora ROI', href: '/calculadora' },
     { name: 'Beneficios', href: '/beneficios' },
     { name: 'Contacto', href: '/contacto' },

@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { CustomCursor } from '@/components/CustomCursor'
+import { ScrollProgress } from '@/components/ScrollProgress'
+import { WhatsAppButton } from '@/components/WhatsAppButton'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://emporium-ia.es'),
@@ -58,10 +61,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className="bg-ei-dark text-ei-text font-satoshi antialiased">
+      <body className="bg-ei-dark text-ei-text font-satoshi antialiased cursor-none">
+        <CustomCursor />
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   )

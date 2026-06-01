@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Bot, Workflow, Plug, BarChart3, Headphones, Receipt, Building2, UtensilsCrossed, ShoppingBag, Stethoscope, Calculator, ShoppingCart } from 'lucide-react'
 import { ServiceCard } from '@/components/ServiceCard'
 import { AnimatedCounter } from '@/components/AnimatedCounter'
+import { FaqSection } from '@/components/FaqSection'
 import { HeroSection } from './HeroSection'
 
 export const metadata: Metadata = {
@@ -165,6 +166,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FaqSection />
 
       {/* Final CTA */}
       <section className="section-padding">
