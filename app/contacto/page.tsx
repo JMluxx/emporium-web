@@ -302,7 +302,11 @@ export default function ContactoPage() {
                   </button>
 
                   <p className="mt-4 text-center text-xs text-ei-muted">
-                    Sin spam. Solo te contactamos para ayudarte.
+                    Al enviar aceptas nuestra{' '}
+                    <a href="/privacidad" className="text-ei-accent hover:underline">
+                      política de privacidad
+                    </a>
+                    . Sin spam.
                   </p>
                 </form>
               )}

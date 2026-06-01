@@ -9,9 +9,9 @@ import { Menu, X } from 'lucide-react'
 const links = [
   { href: '/soluciones', label: 'Soluciones' },
   { href: '/sectores', label: 'Sectores' },
+  { href: '/precios', label: 'Precios' },
   { href: '/integraciones', label: 'Integraciones' },
   { href: '/blog', label: 'Blog' },
-  { href: '/calculadora', label: 'ROI' },
   { href: '/sobre-nosotros', label: 'Nosotros' },
   { href: '/contacto', label: 'Contacto' },
 ]

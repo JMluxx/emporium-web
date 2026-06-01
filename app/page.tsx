@@ -88,6 +88,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Process */}
+      <section className="section-padding">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-ei-accent text-sm font-bold uppercase tracking-widest mb-3">Cómo funciona</p>
+            <h2 className="text-4xl font-black text-ei-text">De la llamada a la automatización</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+            {[
+              { n: '01', title: 'Diagnóstico', desc: '15 min de llamada. Entendemos tus procesos y dónde pierdes más tiempo.' },
+              { n: '02', title: 'Plan a medida', desc: 'Qué automatizamos, cómo funciona, cuánto cuesta y cuándo estará listo.' },
+              { n: '03', title: 'Implementación', desc: 'Arrancamos en días. Las primeras automatizaciones operativas en 1-2 semanas.' },
+              { n: '04', title: 'Soporte continuo', desc: 'No desaparecemos. Ajustamos, mejoramos y añadimos nuevas automatizaciones.' },
+            ].map((step, i) => (
+              <div key={i} className="relative flex flex-col items-start p-6 group">
+                {i < 3 && (
+                  <div className="hidden lg:block absolute top-10 right-0 w-full h-px border-t border-dashed border-[rgba(0,194,203,0.2)] z-0" style={{ left: '50%' }} />
+                )}
+                <div className="relative z-10 w-12 h-12 rounded-full bg-[rgba(0,194,203,0.1)] border border-[rgba(0,194,203,0.25)] flex items-center justify-center mb-4 group-hover:bg-[rgba(0,194,203,0.2)] transition-colors">
+                  <span className="text-ei-accent text-xs font-black">{step.n}</span>
+                </div>
+                <h3 className="text-ei-text font-bold text-base mb-2">{step.title}</h3>
+                <p className="text-ei-muted text-sm leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="section-padding" id="servicios">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

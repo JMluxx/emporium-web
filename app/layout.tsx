@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer'
 import { CustomCursor } from '@/components/CustomCursor'
 import { ScrollProgress } from '@/components/ScrollProgress'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { CookieBanner } from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://emporium-ia.es'),
@@ -68,6 +69,31 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <CookieBanner />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'Emporium IA',
+              description: 'Agencia de automatización con inteligencia artificial para PYMEs en España.',
+              url: 'https://emporium-ia.es',
+              email: 'contacto@emporium-ia.es',
+              telephone: '+34604380891',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Salamanca',
+                addressRegion: 'Castilla y León',
+                addressCountry: 'ES',
+              },
+              areaServed: { '@type': 'Country', name: 'España' },
+              serviceType: 'Automatización con inteligencia artificial',
+              priceRange: '€€',
+              sameAs: ['https://github.com/JMluxx'],
+            }),
+          }}
+        />
       </body>
     </html>
   )

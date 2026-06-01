@@ -110,9 +110,11 @@ export function Footer() {
           <p className="text-xs text-ei-muted">
             © {new Date().getFullYear()} Emporium IA. Todos los derechos reservados.
           </p>
-          <p className="text-xs text-ei-muted">
-            Automatizando PYMEs en Castilla y León y toda España.
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="/privacidad" className="text-xs text-ei-muted hover:text-ei-accent transition-colors">Privacidad</a>
+            <a href="/aviso-legal" className="text-xs text-ei-muted hover:text-ei-accent transition-colors">Aviso legal</a>
+            <p className="text-xs text-ei-muted">Salamanca · España</p>
+          </div>
         </div>
       </div>
     </footer>
