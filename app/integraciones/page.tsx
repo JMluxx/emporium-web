@@ -35,7 +35,7 @@ const integrations = [
   { name: 'Typeform',         category: 'Formularios',     color: 'rgba(38,37,37,0.4)',    letter: 'T' },
 ]
 
-const categories = [...new Set(integrations.map(i => i.category))]
+const categories = Array.from(new Set(integrations.map(i => i.category)))
 
 export default function IntegracionesPage() {
   return (
