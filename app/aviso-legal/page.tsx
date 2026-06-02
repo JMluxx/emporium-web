@@ -21,8 +21,9 @@ export default function AvisoLegalPage() {
               En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico, se informa:
             </p>
             <p className="mt-3">
-              <strong className="text-ei-text">Denominación:</strong> Emporium IA<br />
-              <strong className="text-ei-text">Domicilio:</strong> Salamanca, Castilla y León, España<br />
+              <strong className="text-ei-text">Razón social:</strong> Emporium IA E.S.P.J.<br />
+              <strong className="text-ei-text">CIF:</strong> E25976846<br />
+              <strong className="text-ei-text">Domicilio social:</strong> C/ Castroverde 22, 1ºB, 37008 Salamanca<br />
               <strong className="text-ei-text">Email:</strong> contacto@emporium-ia.es<br />
               <strong className="text-ei-text">Teléfono:</strong> +34 604 38 08 91<br />
               <strong className="text-ei-text">Web:</strong> https://emporium-ia.es

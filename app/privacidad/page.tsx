@@ -18,9 +18,10 @@ export default function PrivacidadPage() {
           <section>
             <h2 className="text-lg font-bold text-ei-text mb-3">1. Responsable del tratamiento</h2>
             <p>
-              <strong className="text-ei-text">Identidad:</strong> Emporium IA<br />
+              <strong className="text-ei-text">Razón social:</strong> Emporium IA E.S.P.J.<br />
+              <strong className="text-ei-text">CIF:</strong> E25976846<br />
+              <strong className="text-ei-text">Domicilio social:</strong> C/ Castroverde 22, 1ºB, 37008 Salamanca<br />
               <strong className="text-ei-text">Email:</strong> contacto@emporium-ia.es<br />
-              <strong className="text-ei-text">Dirección:</strong> Salamanca, Castilla y León, España<br />
               <strong className="text-ei-text">Teléfono:</strong> +34 604 38 08 91
             </p>
           </section>
