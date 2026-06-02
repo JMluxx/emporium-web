@@ -10,6 +10,24 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    slug: 'n8n-vs-make-pymes',
+    title: 'n8n vs Make para PYMEs: cuál elegir y por qué',
+    excerpt:
+      'Make es más fácil de empezar. n8n es más potente a largo plazo. La elección depende de tu caso — aquí lo desglosamos sin rodeos con precios, capacidades y curva de aprendizaje real.',
+    date: '2 Junio 2026',
+    readTime: '7 min',
+    category: 'Herramientas',
+  },
+  {
+    slug: 'cuanto-cuesta-chatbot-empresa',
+    title: '¿Cuánto cuesta un chatbot para una empresa? Precios reales en 2026',
+    excerpt:
+      'Entre 50€/mes y 8.000€ según lo que necesites. Esta guía desglosa las tres opciones principales, qué incluye cada una y cuándo tiene sentido cada inversión.',
+    date: '1 Junio 2026',
+    readTime: '6 min',
+    category: 'Chatbots',
+  },
+  {
     slug: 'automatizar-clinica',
     title: 'Cómo automatizar la gestión de citas en una clínica dental (y reducir no-shows un 30%)',
     excerpt:
@@ -17,6 +35,42 @@ const articles = [
     date: '28 Mayo 2026',
     readTime: '6 min',
     category: 'Clínicas y Salud',
+  },
+  {
+    slug: 'automatizar-facturacion-hosteleria',
+    title: 'Cómo automatizar la facturación en hostelería: guía práctica',
+    excerpt:
+      'El cierre de caja, las facturas a empresa, el informe semanal de ventas. Todo eso puede hacerse solo. Así es como lo montamos para restaurantes y hoteles.',
+    date: '28 Mayo 2026',
+    readTime: '5 min',
+    category: 'Hostelería',
+  },
+  {
+    slug: 'automatizar-atencion-cliente-retail',
+    title: 'Automatizar la atención al cliente en retail: qué funciona y qué no',
+    excerpt:
+      'El 40% de las consultas en retail son siempre las mismas. Eso lo puede responder una IA. El otro 60%, no. Aquí está la línea y cómo montar el sistema.',
+    date: '25 Mayo 2026',
+    readTime: '6 min',
+    category: 'Retail',
+  },
+  {
+    slug: 'ia-para-asesorias-contables',
+    title: 'IA para asesorías contables: qué automatizar primero',
+    excerpt:
+      'Las asesorías tienen los procesos más repetitivos y mejor definidos para automatizar. Esta guía explica por dónde empezar y qué resultados esperar en las primeras semanas.',
+    date: '20 Mayo 2026',
+    readTime: '7 min',
+    category: 'Asesorías',
+  },
+  {
+    slug: 'automatizar-seguimiento-clientes',
+    title: 'Cómo automatizar el seguimiento de clientes sin parecer un robot',
+    excerpt:
+      'La mayoría de las PYMEs pierden entre el 30 y el 50% de sus oportunidades por falta de seguimiento. No porque no quieran — es que no tienen sistema. Esto es lo que funciona.',
+    date: '15 Mayo 2026',
+    readTime: '5 min',
+    category: 'Ventas',
   },
   {
     slug: 'leads-inmobiliaria-ia',

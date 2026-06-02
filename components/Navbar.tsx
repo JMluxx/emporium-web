@@ -12,6 +12,7 @@ const links = [
   { href: '/precios', label: 'Precios' },
   { href: '/integraciones', label: 'Integraciones' },
   { href: '/blog', label: 'Blog' },
+  { href: '/vs-empleado', label: 'vs Empleado' },
   { href: '/sobre-nosotros', label: 'Nosotros' },
   { href: '/contacto', label: 'Contacto' },
 ]

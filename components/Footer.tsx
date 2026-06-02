@@ -13,6 +13,7 @@ const navigation = {
     { name: 'Blog', href: '/blog' },
     { name: 'Integraciones', href: '/integraciones' },
     { name: 'Calculadora ROI', href: '/calculadora' },
+    { name: 'vs Contratar empleado', href: '/vs-empleado' },
     { name: 'Beneficios', href: '/beneficios' },
     { name: 'Contacto', href: '/contacto' },
   ],

@@ -6,6 +6,7 @@ import { CustomCursor } from '@/components/CustomCursor'
 import { ScrollProgress } from '@/components/ScrollProgress'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { CookieBanner } from '@/components/CookieBanner'
+import { ChatbotWidget } from '@/components/ChatbotWidget'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://emporium-ia.es'),
@@ -69,6 +70,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <ChatbotWidget />
         <CookieBanner />
         <script
           type="application/ld+json"
