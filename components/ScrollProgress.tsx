@@ -1,10 +1,19 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 
 export function ScrollProgress() {
+  const [show, setShow] = useState(false)
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 300, damping: 40 })
+
+  useEffect(() => {
+    // Solo mostrar en desktop — en móvil el scroll listener no merece la pena
+    setShow(window.matchMedia('(hover: hover)').matches)
+  }, [])
+
+  if (!show) return null
 
   return (
     <motion.div

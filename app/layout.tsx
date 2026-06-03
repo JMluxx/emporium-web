@@ -7,6 +7,7 @@ import { ScrollProgress } from '@/components/ScrollProgress'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { CookieBanner } from '@/components/CookieBanner'
 import { ChatbotWidget } from '@/components/ChatbotWidget'
+import { DeferredMount } from '@/components/DeferredMount'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://emporium-ia.es'),
@@ -76,9 +77,12 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        {/* Preconnect para fuentes — reduce latencia de DNS+TCP */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.fontshare.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com; font-src 'self' https://api.fontshare.com; img-src 'self' data: https:; connect-src 'self' https://n8n.emporium-ia.es; frame-ancestors 'none';" />
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.fontshare.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com; font-src 'self' https://api.fontshare.com https://cdn.fontshare.com; img-src 'self' data: https:; connect-src 'self' https://n8n.emporium-ia.es; frame-ancestors 'none';" />
       </head>
       <body className="bg-ei-dark text-ei-text font-satoshi antialiased cursor-none">
         <CustomCursor />
@@ -86,9 +90,11 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <WhatsAppButton />
-        <ChatbotWidget />
-        <CookieBanner />
+        <DeferredMount delay={2500}>
+          <WhatsAppButton />
+          <ChatbotWidget />
+          <CookieBanner />
+        </DeferredMount>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

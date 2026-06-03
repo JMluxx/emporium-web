@@ -14,12 +14,12 @@ const proofPoints = [
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] } },
 }
 
 export function HeroSection() {
@@ -121,15 +121,20 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Right: Neural network animation */}
+        {/* Right: Neural network animation — solo desktop */}
         <motion.div
-          className="relative h-[260px] sm:h-[360px] lg:h-[600px] w-full"
+          className="relative hidden lg:block lg:h-[600px] w-full"
           initial={{ opacity: 0, scale: 0.92, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <NeuralAnimation className="w-full h-full" />
         </motion.div>
+
+        {/* Móvil: gradiente estático en lugar de la animación */}
+        <div className="lg:hidden w-full h-[180px] sm:h-[220px] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,194,203,0.08) 0%, transparent 70%)' }}
+        />
       </div>
 
       {/* Scroll indicator */}
