@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'IA para asesorías contables: qué automatizar primero',
   description:
     'Las asesorías fiscales y contables tienen los procesos más repetitivos y mejor definidos para automatizar. Esta guía explica por dónde empezar y qué resultados esperar.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/ia-para-asesorias-contables' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/ia-para-asesorias-contables',
+    type: 'article',
+  },
 }
 
 export default function ArticlePage() {

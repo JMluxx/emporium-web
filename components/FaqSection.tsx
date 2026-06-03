@@ -78,6 +78,20 @@ function FaqItem({ q, a, index }: { q: string; a: string; index: number }) {
 export function FaqSection() {
   return (
     <section className="section-padding">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          }),
+        }}
+      />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-ei-accent text-sm font-bold uppercase tracking-widest mb-3">FAQ</p>

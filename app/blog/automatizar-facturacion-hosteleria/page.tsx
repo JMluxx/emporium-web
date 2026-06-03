@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'Cómo automatizar la facturación en hostelería: guía práctica',
   description:
     'Los restaurantes y hoteles pierden horas cada semana en facturación manual. Esta guía explica cómo automatizar el proceso completo: desde la comanda hasta el cierre contable.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/automatizar-facturacion-hosteleria' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/automatizar-facturacion-hosteleria',
+    type: 'article',
+  },
 }
 
 export default function ArticlePage() {

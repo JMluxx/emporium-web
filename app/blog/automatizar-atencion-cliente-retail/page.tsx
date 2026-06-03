@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'Automatizar la atención al cliente en retail: qué funciona y qué no',
   description:
     'Cómo los negocios de retail y tiendas físicas están usando IA para gestionar consultas, seguimiento de pedidos y devoluciones sin aumentar el equipo.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/automatizar-atencion-cliente-retail' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/automatizar-atencion-cliente-retail',
+    type: 'article',
+  },
 }
 
 export default function ArticlePage() {

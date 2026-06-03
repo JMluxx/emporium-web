@@ -3,9 +3,15 @@ import Link from 'next/link'
 import { ArrowRight, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Blog — Automatización IA para PYMEs',
+  title: 'Blog de automatización IA para PYMEs — Emporium IA',
   description:
-    'Guías prácticas sobre automatización con IA para PYMEs españolas. Casos reales, herramientas y estrategias que funcionan.',
+    'Guías prácticas sobre automatización con IA para PYMEs españolas: chatbots, n8n, workflows, reducción de costes. Casos reales y estrategias que funcionan.',
+  alternates: { canonical: 'https://emporium-ia.es/blog' },
+  openGraph: {
+    title: 'Blog de automatización IA para PYMEs',
+    description: 'Guías prácticas, herramientas y estrategias de automatización con IA para PYMEs.',
+    url: 'https://emporium-ia.es/blog',
+  },
 }
 
 const articles = [

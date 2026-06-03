@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'Cómo automatizar el seguimiento de clientes sin parecer un robot',
   description:
     'El seguimiento de clientes es donde se pierde más dinero en una PYME. La mayoría no tiene sistema. Esta guía explica cómo automatizarlo manteniendo el toque humano.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/automatizar-seguimiento-clientes' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/automatizar-seguimiento-clientes',
+    type: 'article',
+  },
 }
 
 export default function ArticlePage() {

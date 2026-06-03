@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: '¿Cuánto cuesta un chatbot para una empresa? Precios reales en 2026',
   description:
     'Desglose honesto de los costes de un chatbot empresarial en 2026: desde los 50€/mes de herramientas SaaS hasta los 3.000–8.000€ de una solución a medida. Qué incluye cada opción.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/cuanto-cuesta-chatbot-empresa' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/cuanto-cuesta-chatbot-empresa',
+    type: 'article',
+  },
 }
 
 export default function ArticlePage() {

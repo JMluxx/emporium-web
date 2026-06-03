@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'Por qué tu inmobiliaria pierde leads en los primeros 5 minutos',
   description:
     'El 78% de los clientes compra al primer agente que le responde. Si tardas más de 5 minutos en contestar un lead de Idealista, ya has perdido. Esto es lo que automatizamos.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/leads-inmobiliaria-ia' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/leads-inmobiliaria-ia',
+    type: 'article',
+  },
 }
 
 export default function ArticleInmobiliariaPage() {

@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { PreciosFaq } from './PreciosFaq'
 
 export const metadata: Metadata = {
-  title: 'Precios — Automatización IA para PYMEs',
+  title: 'Precios de automatización IA para PYMEs — Emporium IA',
   description:
-    'Precios orientativos de automatización con IA para PYMEs. Sin sorpresas, sin letra pequeña. Presupuesto cerrado antes de empezar.',
+    'Precios claros y cerrados para automatizar tu PYME con inteligencia artificial. Desde 500€ por workflow. Sin sorpresas, sin cuotas ocultas. Consultoría gratuita.',
+  openGraph: {
+    title: 'Precios de automatización IA para PYMEs — Emporium IA',
+    description: 'Desde 500€ por workflow automatizado. Presupuesto cerrado antes de empezar. Sin letra pequeña.',
+    url: 'https://emporium-ia.es/precios',
+  },
+  alternates: { canonical: 'https://emporium-ia.es/precios' },
 }
 
 const plans = [
@@ -61,6 +68,38 @@ const plans = [
 export default function PreciosPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: '¿Hay cuotas mensuales?',
+                acceptedAnswer: { '@type': 'Answer', text: 'No obligatoriamente. El precio de los planes es un pago único por implementación. El mantenimiento mensual es opcional y se acuerda por separado si lo necesitas.' },
+              },
+              {
+                '@type': 'Question',
+                name: '¿Qué pasa si la automatización no funciona como esperaba?',
+                acceptedAnswer: { '@type': 'Answer', text: 'El soporte incluido en cada plan cubre ajustes y correcciones. Si el resultado no cumple lo acordado en el presupuesto, lo arreglamos. Siempre trabajamos con un alcance definido por escrito antes de empezar.' },
+              },
+              {
+                '@type': 'Question',
+                name: '¿Puedo empezar con Starter y crecer después?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Sí, y es lo que recomendamos. Empieza con un proceso concreto, ve los resultados y escala. Muchos clientes empiezan con Starter y en 2-3 meses contratan Growth.' },
+              },
+              {
+                '@type': 'Question',
+                name: '¿El precio incluye las licencias de las herramientas?',
+                acceptedAnswer: { '@type': 'Answer', text: 'No. El precio es por implementación y configuración. Las licencias de herramientas externas (HubSpot, Slack, etc.) corren por tu cuenta. Te asesoramos sobre qué necesitas y te ayudamos a optimizar el coste.' },
+              },
+            ],
+          }),
+        }}
+      />
+
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-hero-gradient opacity-60 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -136,6 +175,9 @@ export default function PreciosPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <PreciosFaq />
 
       <section className="pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

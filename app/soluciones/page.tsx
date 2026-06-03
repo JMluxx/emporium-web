@@ -4,9 +4,15 @@ import { ArrowRight, Bot, Workflow, Plug, BarChart3, Headphones, Receipt } from 
 import { ServiceCard } from '@/components/ServiceCard'
 
 export const metadata: Metadata = {
-  title: 'Soluciones de IA para PYMEs',
+  title: 'Soluciones de automatización IA para PYMEs — Chatbots, workflows y más',
   description:
-    'Chatbots inteligentes, automatización de procesos, integración de sistemas, informes IA, atención 24/7 y facturación automática. Soluciones reales para PYMEs.',
+    'Chatbots inteligentes, automatización de procesos, integración de herramientas, informes IA y facturación automática. Soluciones reales con resultados medibles para PYMEs.',
+  alternates: { canonical: 'https://emporium-ia.es/soluciones' },
+  openGraph: {
+    title: 'Soluciones de automatización IA para PYMEs — Emporium IA',
+    description: 'Chatbots, workflows automatizados, integraciones CRM-ERP y agentes IA para tu negocio.',
+    url: 'https://emporium-ia.es/soluciones',
+  },
 }
 
 const solutions = [

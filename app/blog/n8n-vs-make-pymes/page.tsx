@@ -3,9 +3,16 @@ import Link from 'next/link'
 import { ArrowLeft, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'n8n vs Make para PYMEs: cuál elegir y por qué',
+  title: 'n8n vs Make para PYMEs: cuál elegir y por qué — Emporium IA',
   description:
-    'Comparativa honesta entre n8n y Make para automatizar procesos en PYMEs españolas. Precios, capacidades, curva de aprendizaje y cuándo usar cada uno.',
+    'Comparativa honesta entre n8n y Make para automatizar procesos en PYMEs españolas. Precios, capacidades, curva de aprendizaje y cuándo usar cada uno en 2026.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/n8n-vs-make-pymes' },
+  openGraph: {
+    title: 'n8n vs Make para PYMEs: cuál elegir y por qué',
+    description: 'Comparativa honesta entre n8n y Make. Precios, capacidades y cuándo usar cada uno.',
+    url: 'https://emporium-ia.es/blog/n8n-vs-make-pymes',
+    type: 'article',
+  },
 }
 
 export default function ArticlePage() {

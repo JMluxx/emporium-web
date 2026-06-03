@@ -7,9 +7,15 @@ import { FaqSection } from '@/components/FaqSection'
 import { HeroSection } from './HeroSection'
 
 export const metadata: Metadata = {
-  title: 'Emporium IA — Tu PYME no necesita más empleados. Necesita IA.',
+  title: 'Emporium IA — Automatización con IA para PYMEs en España',
   description:
-    'Automatizamos los procesos de tu PYME con inteligencia artificial. 30% menos costes, 3× productividad. Consultoría gratuita.',
+    'Automatizamos los procesos de tu PYME con inteligencia artificial. Chatbots, workflows y agentes IA. 30% menos costes, 3× productividad. Consultoría gratuita desde Salamanca.',
+  alternates: { canonical: 'https://emporium-ia.es' },
+  openGraph: {
+    title: 'Emporium IA — Automatización con IA para PYMEs',
+    description: 'Chatbots, workflows y agentes IA para PYMEs. 30% menos costes. Consultoría gratuita.',
+    url: 'https://emporium-ia.es',
+  },
 }
 
 const services = [

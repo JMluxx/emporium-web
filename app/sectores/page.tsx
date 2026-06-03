@@ -3,9 +3,15 @@ import Link from 'next/link'
 import { ArrowRight, Building2, UtensilsCrossed, ShoppingBag, Stethoscope, Calculator, ShoppingCart } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Sectores — Automatización IA para tu industria',
+  title: 'Automatización IA por sector: inmobiliario, hostelería, retail y más',
   description:
-    'Automatización con IA para inmobiliarias, hostelería, retail, clínicas, asesorías y e-commerce. Soluciones específicas para cada sector.',
+    'Automatización con inteligencia artificial para inmobiliarias, hostelería, retail, clínicas, asesorías y e-commerce. Soluciones específicas y probadas para cada industria.',
+  alternates: { canonical: 'https://emporium-ia.es/sectores' },
+  openGraph: {
+    title: 'Automatización IA por sector — Emporium IA',
+    description: 'Soluciones de IA específicas para inmobiliarias, hostelería, retail, clínicas y asesorías.',
+    url: 'https://emporium-ia.es/sectores',
+  },
 }
 
 const sectors = [

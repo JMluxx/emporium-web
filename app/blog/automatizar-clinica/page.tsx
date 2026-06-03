@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: 'Cómo automatizar la gestión de citas en una clínica dental',
   description:
     'Los no-shows cuestan entre 800 y 2.000€ al mes a una clínica dental. Aquí explicamos qué automatizamos, cómo funciona y qué resultados esperar.',
+  alternates: { canonical: 'https://emporium-ia.es/blog/automatizar-clinica' },
+  openGraph: {
+    url: 'https://emporium-ia.es/blog/automatizar-clinica',
+    type: 'article',
+  },
 }
 
 export default function ArticleClinicaPage() {
