@@ -176,7 +176,7 @@ export default function PreciosPage() {
               <span className="text-ei-text font-semibold">Todos los precios y tiempos son orientativos.</span>{' '}
               Cada proyecto es diferente: el coste final depende de la complejidad, las integraciones necesarias y el alcance acordado. Los plazos de entrega son tiempos medios — tu caso puede ser más rápido o requerir algo más de margen. Siempre recibirás un presupuesto cerrado y un plazo concreto antes de empezar.
             </p>
-            <p className="text-ei-muted/60 text-xs mt-2">Precios sin IVA · Mantenimiento mensual opcional</p>
+            <p className="text-ei-muted/60 text-xs mt-2">Precios con IVA incluido · Mantenimiento mensual opcional</p>
           </div>
         </div>
       </section>
