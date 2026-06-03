@@ -68,7 +68,7 @@ export function HeroSection() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl lg:text-7xl font-black text-ei-text leading-[1.05] tracking-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-7xl font-black text-ei-text leading-[1.05] tracking-tight mb-6"
           >
             Tu PYME no necesita más empleados.{' '}
             <span className="text-gradient">
@@ -123,7 +123,7 @@ export function HeroSection() {
 
         {/* Right: Neural network animation */}
         <motion.div
-          className="relative h-[400px] lg:h-[600px] w-full"
+          className="relative h-[260px] sm:h-[360px] lg:h-[600px] w-full"
           initial={{ opacity: 0, scale: 0.92, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}

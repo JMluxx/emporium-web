@@ -109,14 +109,14 @@ export default function VsEmpleadoPage() {
                 {employeeCosts.map((row, i) => (
                   <div
                     key={i}
-                    className={`flex items-center justify-between px-6 py-3 ${
+                    className={`flex items-start sm:items-center justify-between gap-3 px-5 sm:px-6 py-3 ${
                       row.highlight ? 'bg-red-500/5' : ''
                     }`}
                   >
-                    <span className={`text-sm ${row.highlight ? 'font-bold text-ei-text' : 'text-ei-muted'}`}>
+                    <span className={`text-sm min-w-0 flex-1 ${row.highlight ? 'font-bold text-ei-text' : 'text-ei-muted'}`}>
                       {row.concept}
                     </span>
-                    <span className={`text-sm font-bold ${row.highlight ? 'text-red-400' : 'text-ei-text'}`}>
+                    <span className={`text-sm font-bold flex-shrink-0 ${row.highlight ? 'text-red-400' : 'text-ei-text'}`}>
                       {row.value}
                     </span>
                   </div>
@@ -137,7 +137,7 @@ export default function VsEmpleadoPage() {
                 {automationCosts.map((row, i) => (
                   <div
                     key={i}
-                    className={`flex items-center justify-between px-6 py-3 ${
+                    className={`flex items-start sm:items-center justify-between gap-3 px-5 sm:px-6 py-3 ${
                       row.highlight ? 'bg-[rgba(0,194,203,0.04)]' : ''
                     }`}
                   >

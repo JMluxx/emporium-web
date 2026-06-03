@@ -229,7 +229,7 @@ export function ChatbotWidget() {
   const showQuickReplies = (step === 'sector' || step === 'problem' || step === 'qualify') && !captureField
 
   return (
-    <div className="fixed bottom-24 right-6 z-40 flex flex-col items-end gap-3">
+    <div className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 z-40 flex flex-col items-end gap-3">
       <AnimatePresence>
         {open && (
           <motion.div
@@ -237,7 +237,7 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 16 }}
             transition={{ duration: 0.2 }}
-            className="w-[340px] max-h-[520px] flex flex-col bg-[#0d0f14] rounded-2xl border border-[rgba(0,194,203,0.2)] shadow-2xl overflow-hidden"
+            className="w-[calc(100vw-2rem)] max-w-[340px] max-h-[75vh] sm:max-h-[520px] flex flex-col bg-[#0d0f14] rounded-2xl border border-[rgba(0,194,203,0.2)] shadow-2xl overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 bg-[#0a0c10] border-b border-[rgba(0,194,203,0.12)]">
