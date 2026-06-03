@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Target, Eye, Heart, Clock, CheckCircle2, Zap, Users } from 'lucide-react'
+import { TiltCard } from '@/components/TiltCard'
 
 const team = [
   {
@@ -72,7 +73,7 @@ export function SobreNosotrosContent() {
       {/* Story */}
       <section className="section-padding">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-ei-card rounded-2xl p-10 md:p-14 border border-[rgba(0,194,203,0.12)]">
+          <TiltCard className="bg-ei-card rounded-2xl p-10 md:p-14 border border-[rgba(0,194,203,0.12)] overflow-hidden">
             <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-6">
               Nuestra historia
             </p>
@@ -90,7 +91,7 @@ export function SobreNosotrosContent() {
                 Hoy trabajamos con PYMEs en toda España, especialmente en Castilla y León, y seguimos con la misma filosofía del primer día: tecnología al servicio de las personas, no al revés.
               </p>
             </div>
-          </div>
+          </TiltCard>
         </div>
       </section>
 
@@ -98,36 +99,28 @@ export function SobreNosotrosContent() {
       <section className="section-padding bg-[#080a0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)]"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center mb-5">
-                <Target size={22} className="text-ei-accent" />
-              </div>
-              <h2 className="text-xl font-black text-ei-text mb-3">Misión</h2>
-              <p className="text-ei-muted leading-relaxed">
-                Democratizar la inteligencia artificial para que cualquier PYME pueda automatizar sus procesos sin grandes inversiones ni conocimientos técnicos.
-              </p>
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+              <TiltCard className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] overflow-hidden">
+                <div className="w-12 h-12 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center mb-5">
+                  <Target size={22} className="text-ei-accent" />
+                </div>
+                <h2 className="text-xl font-black text-ei-text mb-3">Misión</h2>
+                <p className="text-ei-muted leading-relaxed">
+                  Democratizar la inteligencia artificial para que cualquier PYME pueda automatizar sus procesos sin grandes inversiones ni conocimientos técnicos.
+                </p>
+              </TiltCard>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)]"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center mb-5">
-                <Eye size={22} className="text-ei-accent" />
-              </div>
-              <h2 className="text-xl font-black text-ei-text mb-3">Visión</h2>
-              <p className="text-ei-muted leading-relaxed">
-                Ser el partner tecnológico de referencia para PYMEs en España: la agencia a la que acudes cuando quieres crecer sin complicarte la vida.
-              </p>
+            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
+              <TiltCard className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] overflow-hidden">
+                <div className="w-12 h-12 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center mb-5">
+                  <Eye size={22} className="text-ei-accent" />
+                </div>
+                <h2 className="text-xl font-black text-ei-text mb-3">Visión</h2>
+                <p className="text-ei-muted leading-relaxed">
+                  Ser el partner tecnológico de referencia para PYMEs en España: la agencia a la que acudes cuando quieres crecer sin complicarte la vida.
+                </p>
+              </TiltCard>
             </motion.div>
           </div>
         </div>
@@ -144,14 +137,8 @@ export function SobreNosotrosContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] text-center"
-              >
+              <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+              <TiltCard className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] overflow-hidden text-center">
                 <div className="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-5 border border-[rgba(0,194,203,0.2)]">
                   <img
                     src={member.photo}
@@ -163,6 +150,7 @@ export function SobreNosotrosContent() {
                 <p className="text-ei-accent text-sm font-semibold mb-1">{member.role}</p>
                 <p className="text-ei-muted text-xs mb-4 uppercase tracking-wider">{member.area}</p>
                 <p className="text-ei-muted text-sm leading-relaxed">{member.bio}</p>
+              </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -183,17 +171,12 @@ export function SobreNosotrosContent() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
             {values.map((value, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.07 }}
-                className="bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.1)]"
-              >
-                <div className="w-1.5 h-8 rounded-full bg-ei-accent mb-4" />
-                <h3 className="text-base font-bold text-ei-text mb-2">{value.title}</h3>
-                <p className="text-ei-muted text-sm leading-relaxed">{value.description}</p>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}>
+                <TiltCard className="bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.1)] overflow-hidden">
+                  <div className="w-1.5 h-8 rounded-full bg-ei-accent mb-4" />
+                  <h3 className="text-base font-bold text-ei-text mb-2">{value.title}</h3>
+                  <p className="text-ei-muted text-sm leading-relaxed">{value.description}</p>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -239,22 +222,17 @@ export function SobreNosotrosContent() {
                 desc: 'No desaparecemos tras entregar. Ajustamos, mejoramos y añadimos nuevas automatizaciones a medida que creces.',
               },
             ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="relative bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.12)]"
-              >
-                <span className="text-5xl font-black text-[rgba(0,194,203,0.08)] absolute top-4 right-5 leading-none select-none">
-                  {item.step}
-                </span>
-                <div className="w-10 h-10 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="text-base font-bold text-ei-text mb-2">{item.title}</h3>
-                <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.1 }}>
+                <TiltCard className="relative bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.12)] overflow-hidden">
+                  <span className="text-5xl font-black text-[rgba(0,194,203,0.08)] absolute top-4 right-5 leading-none select-none">
+                    {item.step}
+                  </span>
+                  <div className="w-10 h-10 rounded-xl bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-base font-bold text-ei-text mb-2">{item.title}</h3>
+                  <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -307,21 +285,16 @@ export function SobreNosotrosContent() {
                   desc: 'David y José participan directamente en cada implementación. Sin juniors a los que explicarles el contexto cada vez.',
                 },
               ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-4 bg-ei-card rounded-xl p-5 border border-[rgba(0,194,203,0.1)]"
-                >
-                  <div className="w-9 h-9 rounded-lg bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent flex-shrink-0">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="text-ei-text text-sm font-bold mb-1">{item.title}</p>
-                    <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
-                  </div>
+                <motion.div key={i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
+                  <TiltCard className="flex items-start gap-4 bg-ei-card rounded-xl p-5 border border-[rgba(0,194,203,0.1)] overflow-hidden">
+                    <div className="w-9 h-9 rounded-lg bg-[rgba(0,194,203,0.1)] flex items-center justify-center text-ei-accent flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <p className="text-ei-text text-sm font-bold mb-1">{item.title}</p>
+                      <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>
