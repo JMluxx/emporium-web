@@ -23,7 +23,7 @@ const plans = [
     features: [
       'Un workflow automatizado de principio a fin',
       'Integración con hasta 2 herramientas',
-      'Puesta en marcha en 1 semana',
+      'Puesta en marcha en ~1 semana (tiempo medio)',
       '1 mes de soporte incluido',
       'Documentación del proceso',
     ],
@@ -39,7 +39,7 @@ const plans = [
       'Hasta 3 workflows interconectados',
       'Integración con CRM, ERP o herramientas de gestión',
       'Chatbot o agente IA incluido',
-      'Puesta en marcha en 1-2 semanas',
+      'Puesta en marcha en ~1-2 semanas (tiempo medio)',
       '3 meses de soporte y ajustes incluidos',
       'Panel de seguimiento básico',
     ],
@@ -136,7 +136,8 @@ export default function PreciosPage() {
 
                 <div className="mb-6">
                   <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-2">{plan.name}</p>
-                  <p className="text-4xl font-black text-ei-text mb-3">{plan.range}</p>
+                  <p className="text-4xl font-black text-ei-text mb-1">{plan.range}</p>
+                  <p className="text-ei-muted text-xs mb-3">Precio orientativo · cada proyecto es personalizado</p>
                   <p className="text-ei-muted text-sm leading-relaxed">{plan.desc}</p>
                 </div>
 
@@ -168,10 +169,12 @@ export default function PreciosPage() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-ei-muted text-sm">
-              Todos los precios son sin IVA. El mantenimiento mensual tras el periodo incluido es opcional y se acuerda por separado.
+          <div className="mt-10 bg-[rgba(0,194,203,0.04)] border border-[rgba(0,194,203,0.1)] rounded-xl px-6 py-4 text-center max-w-3xl mx-auto">
+            <p className="text-ei-muted text-sm leading-relaxed">
+              <span className="text-ei-text font-semibold">Todos los precios y tiempos son orientativos.</span>{' '}
+              Cada proyecto es diferente: el coste final depende de la complejidad, las integraciones necesarias y el alcance acordado. Los plazos de entrega son tiempos medios — tu caso puede ser más rápido o requerir algo más de margen. Siempre recibirás un presupuesto cerrado y un plazo concreto antes de empezar.
             </p>
+            <p className="text-ei-muted/60 text-xs mt-2">Precios sin IVA · Mantenimiento mensual opcional</p>
           </div>
         </div>
       </section>
