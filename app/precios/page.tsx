@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { PreciosFaq } from './PreciosFaq'
+import { TiltCard } from '@/components/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Precios de automatización IA para PYMEs — Emporium IA',
@@ -118,21 +119,21 @@ export default function PreciosPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`rounded-2xl p-8 border flex flex-col ${
-                  plan.highlight
-                    ? 'bg-gradient-to-b from-[rgba(0,194,203,0.12)] to-ei-card border-[rgba(0,194,203,0.4)] relative'
-                    : 'bg-ei-card border-[rgba(0,194,203,0.12)]'
-                }`}
-              >
+              <div key={plan.name} className="relative">
                 {plan.highlight && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
                     <span className="bg-ei-accent text-[#0a0c10] text-xs font-black px-4 py-1 rounded-full">
                       Más elegido
                     </span>
                   </div>
                 )}
+                <TiltCard
+                  className={`rounded-2xl overflow-hidden p-8 border flex flex-col ${
+                    plan.highlight
+                      ? 'bg-gradient-to-b from-[rgba(0,194,203,0.12)] to-ei-card border-[rgba(0,194,203,0.4)]'
+                      : 'bg-ei-card border-[rgba(0,194,203,0.12)]'
+                  }`}
+                >
 
                 <div className="mb-6">
                   <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-2">{plan.name}</p>
@@ -165,6 +166,7 @@ export default function PreciosPage() {
                 >
                   {plan.cta} <ArrowRight size={16} />
                 </Link>
+                </TiltCard>
               </div>
             ))}
           </div>

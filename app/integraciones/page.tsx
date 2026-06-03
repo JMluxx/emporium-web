@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { TiltCard } from '@/components/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Integraciones — Conectamos tus herramientas',
@@ -61,9 +62,9 @@ export default function IntegracionesPage() {
               <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-5">{cat}</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
                 {integrations.filter(i => i.category === cat).map((tool, j) => (
-                  <div
+                  <TiltCard
                     key={j}
-                    className="flex items-center gap-3 bg-ei-card rounded-xl px-4 py-3.5 border border-[rgba(0,194,203,0.1)] hover:border-[rgba(0,194,203,0.3)] transition-colors group"
+                    className="flex items-center gap-3 bg-ei-card rounded-xl px-4 py-3.5 border border-[rgba(0,194,203,0.1)] hover:border-[rgba(0,194,203,0.3)] transition-colors overflow-hidden"
                   >
                     <div
                       className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 text-sm font-black text-ei-text"
@@ -72,7 +73,7 @@ export default function IntegracionesPage() {
                       {tool.letter}
                     </div>
                     <span className="text-ei-text text-sm font-medium">{tool.name}</span>
-                  </div>
+                  </TiltCard>
                 ))}
               </div>
             </div>

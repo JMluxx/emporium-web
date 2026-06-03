@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Clock } from 'lucide-react'
+import { TiltCard } from '@/components/TiltCard'
 
 export const metadata: Metadata = {
   title: 'Blog de automatización IA para PYMEs — Emporium IA',
@@ -110,28 +111,29 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6">
             {articles.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/blog/${a.slug}`}
-                className="group bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] hover:border-[rgba(0,194,203,0.3)] transition-all duration-300 block"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="px-3 py-1 rounded-full bg-[rgba(0,194,203,0.1)] text-ei-accent text-xs font-bold">
-                    {a.category}
+              <TiltCard key={a.slug} className="rounded-2xl overflow-hidden">
+                <Link
+                  href={`/blog/${a.slug}`}
+                  className="group bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] hover:border-[rgba(0,194,203,0.3)] transition-colors duration-300 block"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 rounded-full bg-[rgba(0,194,203,0.1)] text-ei-accent text-xs font-bold">
+                      {a.category}
+                    </span>
+                    <span className="flex items-center gap-1 text-ei-muted text-xs">
+                      <Clock size={11} /> {a.readTime}
+                    </span>
+                    <span className="text-ei-muted text-xs">{a.date}</span>
+                  </div>
+                  <h2 className="text-xl font-black text-ei-text leading-snug mb-3 group-hover:text-ei-accent transition-colors duration-200">
+                    {a.title}
+                  </h2>
+                  <p className="text-ei-muted text-sm leading-relaxed mb-4">{a.excerpt}</p>
+                  <span className="inline-flex items-center gap-1 text-ei-accent text-sm font-semibold group-hover:gap-2 transition-all duration-200">
+                    Leer artículo <ArrowRight size={14} />
                   </span>
-                  <span className="flex items-center gap-1 text-ei-muted text-xs">
-                    <Clock size={11} /> {a.readTime}
-                  </span>
-                  <span className="text-ei-muted text-xs">{a.date}</span>
-                </div>
-                <h2 className="text-xl font-black text-ei-text leading-snug mb-3 group-hover:text-ei-accent transition-colors duration-200">
-                  {a.title}
-                </h2>
-                <p className="text-ei-muted text-sm leading-relaxed mb-4">{a.excerpt}</p>
-                <span className="inline-flex items-center gap-1 text-ei-accent text-sm font-semibold group-hover:gap-2 transition-all duration-200">
-                  Leer artículo <ArrowRight size={14} />
-                </span>
-              </Link>
+                </Link>
+              </TiltCard>
             ))}
           </div>
         </div>

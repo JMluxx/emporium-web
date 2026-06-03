@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { PainPointCard } from '@/components/PainPointCard'
 import Link from 'next/link'
 import { ArrowRight, Stethoscope, ExternalLink, CheckCircle2 } from 'lucide-react'
 
@@ -109,12 +110,7 @@ export default function ClinicasPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {pain_points.map((item, i) => (
-              <div key={i} className="bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.1)]">
-                <p className="text-xs font-bold uppercase tracking-widest text-ei-muted mb-1">Problema</p>
-                <p className="text-ei-text font-bold mb-3">{item.problem}</p>
-                <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-1">Solución</p>
-                <p className="text-ei-muted text-sm leading-relaxed">{item.solution}</p>
-              </div>
+              <PainPointCard key={i} problem={item.problem} solution={item.solution} />
             ))}
           </div>
         </div>
