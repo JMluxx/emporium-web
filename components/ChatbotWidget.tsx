@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Bot } from 'lucide-react'
 
+const WEBHOOK_URL = 'https://n8n.emporium-ia.es/webhook/emporium-leads'
+
 interface Message {
   from: 'bot' | 'user'
   text: string
@@ -130,6 +132,17 @@ export function ChatbotWidget() {
     } else if (captureField === 'email') {
       setCaptureField(null)
       setStep('done')
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: userName,
+          email: val,
+          sector,
+          problem: messages.find(m => m.from === 'user' && PROBLEMS[sector]?.includes(m.text))?.text ?? '',
+          source: 'Chatbot',
+        }),
+      }).catch(() => {})
       await addBot(`Listo ${userName}, te escribimos en menos de 24h con un análisis rápido de lo que podemos automatizar en tu negocio. ¡Hasta pronto! 🚀`, 800)
     }
   }

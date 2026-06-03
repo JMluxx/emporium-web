@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react'
 
-const FORMSPREE_ID = 'mnjjqdvo'
+const WEBHOOK_URL = 'https://n8n.emporium-ia.es/webhook/emporium-leads'
 
 const SECTORS = [
   { label: 'Inmobiliario', emoji: '🏠' },
@@ -68,14 +68,15 @@ export default function ContactoPage() {
     if (!validateStep2()) return
     setStatus('sending')
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch(WEBHOOK_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
           sector: form.sector,
-          message: `Sector: ${form.sector}\nReto principal: ${form.problem}`,
+          problem: form.problem,
+          source: 'Formulario',
         }),
       })
       if (res.ok) {
