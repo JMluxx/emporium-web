@@ -109,9 +109,6 @@ export default function HomePage() {
               { n: '04', title: 'Soporte continuo', desc: 'No desaparecemos. Ajustamos, mejoramos y añadimos nuevas automatizaciones.' },
             ].map((step, i) => (
               <div key={i} className="relative flex flex-col items-start p-6 group">
-                {i < 3 && (
-                  <div className="hidden lg:block absolute top-10 right-0 w-full h-px border-t border-dashed border-[rgba(0,194,203,0.2)] z-0" style={{ left: '50%' }} />
-                )}
                 <div className="relative z-10 w-12 h-12 rounded-full bg-[rgba(0,194,203,0.1)] border border-[rgba(0,194,203,0.25)] flex items-center justify-center mb-4 group-hover:bg-[rgba(0,194,203,0.2)] transition-colors">
                   <span className="text-ei-accent text-xs font-black">{step.n}</span>
                 </div>
