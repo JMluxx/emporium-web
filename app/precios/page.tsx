@@ -128,6 +128,7 @@ export default function PreciosPage() {
                   </div>
                 )}
                 <TiltCard
+                  lift
                   className={`rounded-2xl overflow-hidden p-8 border flex flex-col ${
                     plan.highlight
                       ? 'bg-gradient-to-b from-[rgba(0,194,203,0.12)] to-ei-card border-[rgba(0,194,203,0.4)]'

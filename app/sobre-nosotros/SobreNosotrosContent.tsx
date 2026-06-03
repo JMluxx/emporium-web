@@ -73,7 +73,7 @@ export function SobreNosotrosContent() {
       {/* Story */}
       <section className="section-padding">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <TiltCard className="bg-ei-card rounded-2xl p-10 md:p-14 border border-[rgba(0,194,203,0.12)] overflow-hidden">
+          <TiltCard lift className="bg-ei-card rounded-2xl p-10 md:p-14 border border-[rgba(0,194,203,0.12)] overflow-hidden">
             <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-6">
               Nuestra historia
             </p>
@@ -138,7 +138,7 @@ export function SobreNosotrosContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-              <TiltCard className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] overflow-hidden text-center">
+              <TiltCard lift className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.12)] overflow-hidden text-center">
                 <div className="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-5 border border-[rgba(0,194,203,0.2)]">
                   <img
                     src={member.photo}
