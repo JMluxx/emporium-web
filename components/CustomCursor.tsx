@@ -1,11 +1,12 @@
 'use client'
 
 import { motion, useMotionValue, useSpring } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function CustomCursor() {
   const [visible, setVisible] = useState(false)
   const [isPointer, setIsPointer] = useState(false)
+  const isPointerRef = useRef(false)
 
   const mx = useMotionValue(-100)
   const my = useMotionValue(-100)
@@ -21,15 +22,17 @@ export function CustomCursor() {
     const onMove = (e: MouseEvent) => {
       mx.set(e.clientX)
       my.set(e.clientY)
-      setVisible(true)
+      if (!visible) setVisible(true)
       const el = e.target as HTMLElement
-      setIsPointer(
+      const pointer =
         el.tagName === 'A' ||
         el.tagName === 'BUTTON' ||
         el.closest('a') !== null ||
-        el.closest('button') !== null ||
-        window.getComputedStyle(el).cursor === 'pointer'
-      )
+        el.closest('button') !== null
+      if (pointer !== isPointerRef.current) {
+        isPointerRef.current = pointer
+        setIsPointer(pointer)
+      }
     }
     const onLeave = () => setVisible(false)
     const onEnter = () => setVisible(true)
@@ -42,7 +45,7 @@ export function CustomCursor() {
       document.removeEventListener('mouseleave', onLeave)
       document.removeEventListener('mouseenter', onEnter)
     }
-  }, [mx, my])
+  }, [mx, my, visible])
 
   if (!visible) return null
 

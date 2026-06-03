@@ -35,37 +35,26 @@ const PULSE_DURS = [
 
 const EDGES: EdgeDef[] = [
   { from: 'i1', to: 'h1', dur: '1.8s', begin: '0.0s'  },
-  { from: 'i1', to: 'h2', dur: '2.1s', begin: '0.5s'  },
   { from: 'i1', to: 'h3', dur: '2.4s', begin: '1.0s'  },
-  { from: 'i2', to: 'h1', dur: '1.9s', begin: '0.3s'  },
   { from: 'i2', to: 'h2', dur: '2.0s', begin: '0.8s'  },
-  { from: 'i2', to: 'h3', dur: '1.7s', begin: '0.2s'  },
   { from: 'i2', to: 'h4', dur: '2.2s', begin: '0.6s'  },
   { from: 'i3', to: 'h3', dur: '1.9s', begin: '0.4s'  },
   { from: 'i3', to: 'h4', dur: '2.3s', begin: '0.9s'  },
   { from: 'h1', to: 'h5', dur: '1.6s', begin: '0.1s'  },
-  { from: 'h1', to: 'h6', dur: '2.0s', begin: '0.7s'  },
-  { from: 'h2', to: 'h5', dur: '1.8s', begin: '0.4s'  },
   { from: 'h2', to: 'h6', dur: '1.7s', begin: '0.2s'  },
-  { from: 'h2', to: 'h7', dur: '2.1s', begin: '0.9s'  },
   { from: 'h3', to: 'h5', dur: '2.3s', begin: '0.6s'  },
-  { from: 'h3', to: 'h6', dur: '1.9s', begin: '0.3s'  },
   { from: 'h3', to: 'h7', dur: '2.0s', begin: '0.1s'  },
-  { from: 'h4', to: 'h6', dur: '1.7s', begin: '0.5s'  },
   { from: 'h4', to: 'h7', dur: '2.2s', begin: '0.8s'  },
   { from: 'h5', to: 'o1', dur: '1.5s', begin: '0.2s'  },
-  { from: 'h5', to: 'o2', dur: '2.0s', begin: '0.7s'  },
-  { from: 'h6', to: 'o1', dur: '1.8s', begin: '0.4s'  },
   { from: 'h6', to: 'o2', dur: '1.6s', begin: '0.1s'  },
   { from: 'h7', to: 'o1', dur: '2.1s', begin: '0.6s'  },
-  { from: 'h7', to: 'o2', dur: '1.9s', begin: '0.3s'  },
 ]
 
 const nodeMap = Object.fromEntries(NODES.map(n => [n.id, n]))
 
 export function NeuralAnimation({ className }: { className?: string }) {
   return (
-    <div className={`relative flex items-center justify-center ${className ?? ''}`}>
+    <div className={`relative flex items-center justify-center ${className ?? ''}`} style={{ contain: 'layout style' }}>
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,194,203,0.07) 0%, transparent 70%)' }}
@@ -76,10 +65,9 @@ export function NeuralAnimation({ className }: { className?: string }) {
         width="100%"
         height="100%"
         aria-hidden="true"
-        style={{ overflow: 'visible' }}
+        style={{ overflow: 'visible', willChange: 'transform' }}
       >
         <defs>
-          {/* Path definitions for animateMotion */}
           {EDGES.map(e => {
             const f = nodeMap[e.from]
             const t = nodeMap[e.to]
@@ -91,22 +79,6 @@ export function NeuralAnimation({ className }: { className?: string }) {
               />
             )
           })}
-
-          <filter id="nn-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          <filter id="nn-node-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
         {/* Layer labels */}
@@ -136,8 +108,8 @@ export function NeuralAnimation({ className }: { className?: string }) {
           <circle
             key={`pt-${e.from}-${e.to}`}
             r="2.5"
-            fill="#00c2cb"
-            filter="url(#nn-glow)"
+            fill="#00dde7"
+            opacity="0.9"
           >
             <animateMotion
               dur={e.dur}
@@ -153,7 +125,7 @@ export function NeuralAnimation({ className }: { className?: string }) {
 
         {/* Nodes */}
         {NODES.map((node, i) => (
-          <g key={node.id} filter="url(#nn-node-glow)">
+          <g key={node.id}>
             {/* Pulse ring */}
             <circle cx={node.x} cy={node.y} r="12" fill="none" stroke="#00c2cb" strokeOpacity="0.2" strokeWidth="1">
               <animate attributeName="r"            values="12;18;12"    dur={PULSE_DURS[i]} repeatCount="indefinite" />

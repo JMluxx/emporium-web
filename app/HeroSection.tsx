@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { NeuralAnimation } from '@/components/NeuralAnimation'
 import { useRef } from 'react'
@@ -26,11 +26,10 @@ export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, 120])
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 80])
   const bgOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
-  const orbY1 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -80]), { stiffness: 80, damping: 20 })
-  const orbY2 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -40]), { stiffness: 60, damping: 20 })
-  const contentY = useSpring(useTransform(scrollYProgress, [0, 1], [0, 60]), { stiffness: 80, damping: 20 })
+  const orbY1 = useTransform(scrollYProgress, [0, 1], [0, -60])
+  const orbY2 = useTransform(scrollYProgress, [0, 1], [0, -30])
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden bg-ei-dark">
@@ -57,10 +56,7 @@ export function HeroSection() {
       {/* Animated border glow at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(0,194,203,0.3)] to-transparent" />
 
-      <motion.div
-        style={{ y: contentY }}
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full"
-      >
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
         {/* Left: Text */}
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <motion.div variants={itemVariants}>
@@ -134,7 +130,7 @@ export function HeroSection() {
         >
           <NeuralAnimation className="w-full h-full" />
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
