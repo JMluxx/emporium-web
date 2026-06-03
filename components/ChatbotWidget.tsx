@@ -11,30 +11,73 @@ interface Message {
   text: string
 }
 
-type Step =
-  | 'greeting'
-  | 'sector'
-  | 'problem'
-  | 'qualify'
-  | 'capture'
-  | 'done'
+type Step = 'greeting' | 'sector' | 'problem' | 'qualify' | 'capture' | 'done'
+type CaptureField = 'name' | 'email' | 'problem' | null
 
 const SECTORS = ['Inmobiliario', 'Hostelería', 'Clínicas y Salud', 'Retail', 'Asesorías', 'E-commerce', 'Otro']
 
 const PROBLEMS: Record<string, string[]> = {
-  Inmobiliario: ['Respuesta lenta a leads', 'Gestión de visitas', 'Seguimiento de clientes', 'Otro'],
-  Hostelería: ['Reservas y cancelaciones', 'Atención al cliente', 'Control de inventario', 'Otro'],
+  Inmobiliario:       ['Respuesta lenta a leads', 'Gestión de visitas', 'Seguimiento de clientes', 'Otro'],
+  Hostelería:         ['Reservas y cancelaciones', 'Atención al cliente', 'Control de inventario', 'Otro'],
   'Clínicas y Salud': ['No-shows de citas', 'Recordatorios a pacientes', 'Gestión de agenda', 'Otro'],
-  Retail: ['Atención fuera de horario', 'Gestión de pedidos', 'Seguimiento post-venta', 'Otro'],
-  Asesorías: ['Captación de clientes', 'Documentación repetitiva', 'Facturación', 'Otro'],
-  'E-commerce': ['Atención al cliente', 'Gestión de devoluciones', 'Seguimiento de pedidos', 'Otro'],
-  Otro: ['Tareas repetitivas', 'Atención al cliente', 'Reportes manuales', 'Otro'],
+  Retail:             ['Atención fuera de horario', 'Gestión de pedidos', 'Seguimiento post-venta', 'Otro'],
+  Asesorías:          ['Captación de clientes', 'Documentación repetitiva', 'Facturación', 'Otro'],
+  'E-commerce':       ['Atención al cliente', 'Gestión de devoluciones', 'Seguimiento de pedidos', 'Otro'],
+  Otro:               ['Tareas repetitivas', 'Atención al cliente', 'Reportes manuales', 'Otro'],
 }
 
 const PROBLEM_RESPONSES: Record<string, string> = {
-  'Respuesta lenta a leads': 'El 78% de los clientes elige al primero que responde. Con IA, respondes en segundos aunque sean las 2 de la madrugada.',
-  'No-shows de citas': 'Los recordatorios automáticos por WhatsApp reducen los no-shows un 30% de media. Sin que nadie tenga que llamar.',
-  'Tareas repetitivas': 'Eso es exactamente lo que hacemos: identificar las tareas que más tiempo roban y eliminarlas con automatizaciones.',
+  // Inmobiliario
+  'Respuesta lenta a leads':
+    'El 78% de los clientes compra al primer agente que responde. Si tardas más de 5 minutos, ya has perdido. Con IA respondes al instante — aunque el lead llegue un domingo a las 11 de la noche.',
+  'Gestión de visitas':
+    'Confirmaciones manuales, cambios de última hora, no-shows sin aviso... Lo automatizamos todo: confirmación automática, recordatorio 24h antes y reagendado sin que nadie toque el teléfono.',
+  'Seguimiento de clientes':
+    'La mayoría de las ventas inmobiliarias se pierden en el silencio post-visita. Un sistema de seguimiento automatizado recupera entre el 20 y el 35% de esas oportunidades sin esfuerzo extra de tu equipo.',
+
+  // Hostelería
+  'Reservas y cancelaciones':
+    'Las cancelaciones de última hora y los no-shows cuestan más de lo que parece. Automatizamos recordatorios, listas de espera y reconfirmaciones — y se reducen hasta un 40%.',
+  'Atención al cliente':
+    'Un chatbot gestiona las preguntas repetitivas 24/7 — horarios, carta, reservas especiales — y libera a tu equipo para lo que realmente importa en sala. Sin contratar a nadie extra.',
+  'Control de inventario':
+    'Alertas automáticas cuando el stock baja del umbral, pedidos recurrentes generados solos y registro de mermas sin papeles. Tu equipo deja de perder horas en spreadsheets.',
+
+  // Clínicas y Salud
+  'No-shows de citas':
+    'Los recordatorios automáticos por WhatsApp 48h y 2h antes reducen los no-shows un 30% de media. Con confirmación activa del paciente — no un email que nadie lee.',
+  'Recordatorios a pacientes':
+    'Recordatorios de revisión, seguimiento post-tratamiento, instrucciones previas al procedimiento... Todo sale solo en el momento justo. Tus pacientes sienten más atención, tu equipo hace menos llamadas.',
+  'Gestión de agenda':
+    'Pacientes que se autoasignan cita, cancelaciones que rellena la lista de espera automáticamente y ajuste de huecos en tiempo real. La agenda siempre optimizada, sin que recepción tenga que gestionar cada movimiento.',
+
+  // Retail
+  'Atención fuera de horario':
+    'El 35% de las consultas en retail llegan fuera de horario. Un chatbot responde al momento — stock, precios, estado de pedido — sin que nadie pierda una venta por estar cerrado.',
+  'Gestión de pedidos':
+    'Confirmación automática, actualización de estado, aviso de envío y gestión de incidencias sin intervención manual. Tu equipo deja de responder los mismos 5 emails cada día.',
+  'Seguimiento post-venta':
+    'Encuesta de satisfacción automática, recordatorio de recompra según historial y detección temprana de devoluciones. Clientes que vuelven sin que tengas que pedirlo.',
+
+  // Asesorías
+  'Captación de clientes':
+    'El primer contacto cualificado llega a tu CRM solo — con sector, necesidad y urgencia ya identificados. Tu equipo solo habla con quienes tienen intención real de contratar.',
+  'Documentación repetitiva':
+    'Modelos, declaraciones, informes periódicos que se generan solos con los datos de tus clientes. Lo que tardabas 2 horas, sale en 3 minutos sin errores de copia.',
+  'Facturación':
+    'Facturas que se generan al cerrar el servicio, se envían solas, se contabilizan y mandan recordatorio si no se han pagado. Cero seguimiento manual — y cobras antes.',
+
+  // E-commerce
+  'Gestión de devoluciones':
+    'Formulario automático, etiqueta de envío generada sola, reembolso procesado y cliente informado en cada paso. Las devoluciones dejan de ser un caos para tu equipo.',
+  'Seguimiento de pedidos':
+    'Cada cambio de estado llega al cliente sin que nadie lo gestione. Menos contactos de soporte, menos tickets, más satisfacción y más probabilidad de recompra.',
+
+  // Genérico
+  'Tareas repetitivas':
+    'Eso es exactamente donde actuamos. Identificamos las tareas que más tiempo roban y las eliminamos con automatizaciones. El equipo se libera para lo que tiene valor real.',
+  'Reportes manuales':
+    'Informes que se escriben solos con los datos que ya tienes — semanales, mensuales, por cliente. Sin abrir un Excel, sin margen de error humano.',
 }
 
 function getDelayedBotMessage(text: string, delay = 700): Promise<Message> {
@@ -48,9 +91,10 @@ export function ChatbotWidget() {
   const [messages, setMessages] = useState<Message[]>([])
   const [step, setStep] = useState<Step>('greeting')
   const [sector, setSector] = useState('')
+  const [problem, setProblem] = useState('')
   const [typing, setTyping] = useState(false)
   const [inputVal, setInputVal] = useState('')
-  const [captureField, setCaptureField] = useState<'name' | 'email' | null>(null)
+  const [captureField, setCaptureField] = useState<CaptureField>(null)
   const [userName, setUserName] = useState('')
   const bottomRef = useRef<HTMLDivElement>(null)
 
@@ -93,17 +137,35 @@ export function ChatbotWidget() {
     setSector(s)
     addUser(s)
     setStep('problem')
-    await addBot(`Entendido. ¿Cuál es el mayor dolor de cabeza en tu ${s.toLowerCase()} ahora mismo?`)
+    await addBot(
+      s === 'Otro'
+        ? '¿Cuál es el mayor problema que quieres resolver en tu negocio ahora mismo?'
+        : `Entendido. ¿Cuál es el mayor dolor de cabeza en tu ${s.toLowerCase()} ahora mismo?`
+    )
   }
 
   const handleProblemClick = async (p: string) => {
     addUser(p)
+
+    if (p === 'Otro') {
+      await addBot(
+        'Cuéntame con tus palabras — ¿qué proceso te roba más tiempo o dónde sientes que estás perdiendo dinero?',
+        800
+      )
+      setCaptureField('problem')
+      return
+    }
+
+    setProblem(p)
     setStep('qualify')
     const specific = PROBLEM_RESPONSES[p]
     if (specific) {
       await addBot(specific, 800)
     }
-    await addBot('Lo bueno es que tiene solución directa. ¿Quieres que te expliquemos cómo lo hacemos y qué costaría?', 600)
+    await addBot(
+      'Lo bueno es que tiene solución directa. ¿Quieres que te expliquemos cómo lo hacemos y qué costaría en tu caso?',
+      600
+    )
   }
 
   const handleQualify = async (yes: boolean) => {
@@ -125,11 +187,25 @@ export function ChatbotWidget() {
     setInputVal('')
     addUser(val)
 
+    if (captureField === 'problem') {
+      setProblem(val)
+      setCaptureField(null)
+      setStep('qualify')
+      await addBot(
+        'Entendido. No es el primer caso así que vemos. ¿Quieres que te expliquemos exactamente cómo lo resolvemos y qué costaría?',
+        800
+      )
+      return
+    }
+
     if (captureField === 'name') {
       setUserName(val)
       setCaptureField('email')
       await addBot(`Encantado, ${val}. ¿Y tu email para mandarte la info?`, 700)
-    } else if (captureField === 'email') {
+      return
+    }
+
+    if (captureField === 'email') {
       setCaptureField(null)
       setStep('done')
       fetch(WEBHOOK_URL, {
@@ -139,15 +215,18 @@ export function ChatbotWidget() {
           name: userName,
           email: val,
           sector,
-          problem: messages.find(m => m.from === 'user' && PROBLEMS[sector]?.includes(m.text))?.text ?? '',
+          problem,
           source: 'Chatbot',
         }),
       }).catch(() => {})
-      await addBot(`Listo ${userName}, te escribimos en menos de 24h con un análisis rápido de lo que podemos automatizar en tu negocio. ¡Hasta pronto! 🚀`, 800)
+      await addBot(
+        `Listo ${userName}, te escribimos en menos de 24h con un análisis de lo que podemos automatizar en tu negocio. ¡Hasta pronto! 🚀`,
+        800
+      )
     }
   }
 
-  const showQuickReplies = step === 'sector' || step === 'problem' || step === 'qualify'
+  const showQuickReplies = (step === 'sector' || step === 'problem' || step === 'qualify') && !captureField
 
   return (
     <div className="fixed bottom-24 right-6 z-40 flex flex-col items-end gap-3">
@@ -180,10 +259,7 @@ export function ChatbotWidget() {
             {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 scrollbar-thin">
               {messages.map((m, i) => (
-                <div
-                  key={i}
-                  className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
+                <div key={i} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div
                     className={`max-w-[80%] px-3 py-2 rounded-xl text-sm leading-relaxed ${
                       m.from === 'user'
@@ -208,7 +284,7 @@ export function ChatbotWidget() {
                     ))}
                   </div>
                 </div>
-              )}
+          )}
 
               {/* Quick replies */}
               {!typing && showQuickReplies && (
@@ -257,7 +333,7 @@ export function ChatbotWidget() {
               <div ref={bottomRef} />
             </div>
 
-            {/* Input */}
+            {/* Input — aparece para problema libre, nombre y email */}
             {captureField && (
               <div className="px-4 py-3 border-t border-[rgba(0,194,203,0.1)] flex gap-2">
                 <input
@@ -265,7 +341,13 @@ export function ChatbotWidget() {
                   value={inputVal}
                   onChange={(e) => setInputVal(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleInput()}
-                  placeholder={captureField === 'email' ? 'tu@empresa.com' : 'Tu nombre'}
+                  placeholder={
+                    captureField === 'email'
+                      ? 'tu@empresa.com'
+                      : captureField === 'name'
+                      ? 'Tu nombre'
+                      : 'Describe tu situación...'
+                  }
                   className="flex-1 bg-[#161922] border border-[rgba(0,194,203,0.15)] rounded-lg px-3 py-2 text-ei-text text-sm placeholder:text-ei-muted/50 outline-none focus:border-ei-accent transition-colors"
                   autoFocus
                 />
@@ -280,10 +362,7 @@ export function ChatbotWidget() {
 
             {step === 'done' && (
               <div className="px-4 py-3 border-t border-[rgba(0,194,203,0.1)] text-center">
-                <a
-                  href="/contacto"
-                  className="text-ei-accent text-xs font-semibold hover:underline"
-                >
+                <a href="/contacto" className="text-ei-accent text-xs font-semibold hover:underline">
                   O rellena el formulario de contacto →
                 </a>
               </div>
