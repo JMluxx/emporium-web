@@ -3,27 +3,25 @@ import Link from 'next/link'
 import { ArrowRight, UtensilsCrossed, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Automatización IA para Hostelería',
+  title: 'Automatización IA para Hostelería — Restaurantes, Hoteles y Airbnb',
   description:
-    'Reservas, recordatorios, reseñas y fidelización automatizados para restaurantes, hoteles y bares. Menos no-shows, más ocupación.',
+    'Automatización con IA para restaurantes, hoteles y alojamientos turísticos. Reservas, check-in, reviews, fidelización y gestión multicanal sin trabajo manual.',
+  alternates: { canonical: 'https://emporium-ia.es/sectores/hosteleria' },
+  openGraph: {
+    title: 'Automatización IA para Hostelería — Restaurantes, Hoteles y Airbnb',
+    description: 'Gestión de reservas, check-in automático, reviews y fidelización para restaurantes, hoteles y Airbnb.',
+    url: 'https://emporium-ia.es/sectores/hosteleria',
+  },
 }
 
-const benefits = [
-  'Gestión de reservas 24/7 sin intervención humana',
-  'Recordatorios automáticos por WhatsApp que reducen no-shows',
-  'Respuesta a reseñas en tono personalizado',
-  'Campañas de fidelización automáticas por temporada',
-  'Panel de ocupación y ticket medio en tiempo real',
-]
-
-const pain_points = [
+const restaurantePainPoints = [
   {
     problem: 'No-shows que dejan mesas vacías',
-    solution: 'Recordatorio automático 24h y 2h antes de la reserva. Confirmación requerida. Si no confirman, la mesa se libera para lista de espera.',
+    solution: 'Recordatorio automático 24h y 2h antes de la reserva. Confirmación requerida. Si no confirman, la mesa se libera para la lista de espera automáticamente.',
   },
   {
     problem: 'Reseñas de Google sin responder',
-    solution: 'Respuesta automática a reseñas en menos de 1 hora, en el tono de tu marca. Las negativas se escalan para respuesta manual inmediata.',
+    solution: 'Respuesta automática en menos de 1 hora, en el tono de tu marca. Las negativas se escalan al propietario para respuesta manual inmediata.',
   },
   {
     problem: 'Clientes que vienen una vez y no vuelven',
@@ -31,8 +29,36 @@ const pain_points = [
   },
   {
     problem: 'Sin datos de ocupación ni rendimiento',
-    solution: 'Dashboard diario con ocupación por franja horaria, ticket medio, platos más pedidos y comparativa con la semana anterior.',
+    solution: 'Dashboard diario con ocupación por franja horaria, ticket medio, platos más pedidos y comparativa semanal. Sin abrir Excel.',
   },
+]
+
+const hotelPainPoints = [
+  {
+    problem: 'Reservas dispersas por Booking, Airbnb y web propia',
+    solution: 'Sincronización automática de calendarios entre todos los canales. Sin solapamientos, sin overbooking, sin actualizar a mano cada plataforma.',
+  },
+  {
+    problem: 'Check-in y check-out manual para cada huésped',
+    solution: 'Mensaje automático con instrucciones de llegada, código de acceso y normas de la casa. El huésped llega informado — sin que nadie tenga que estar pendiente.',
+  },
+  {
+    problem: 'Reviews en Booking, TripAdvisor y Airbnb sin gestionar',
+    solution: 'Solicitud automática de reseña al hacer check-out. Respuesta personalizada en cada plataforma. Las negativas se detectan para actuar antes de que escalen.',
+  },
+  {
+    problem: 'Oportunidades de upselling que nadie aprovecha',
+    solution: 'Mensajes automáticos antes de la llegada ofreciendo mejora de habitación, traslado o servicios extras. Sin intervención humana — y con conversión real.',
+  },
+]
+
+const benefits = [
+  'Sincronización de reservas entre Booking, Airbnb y web propia',
+  'Check-in y check-out automatizado por WhatsApp o email',
+  'Recordatorios anti no-show para restaurantes y alojamientos',
+  'Solicitud y gestión de reseñas en todas las plataformas',
+  'Campañas de fidelización y upselling automáticas',
+  'Dashboard unificado de ocupación, ingresos y valoraciones',
 ]
 
 export default function HosteleriaPage() {
@@ -56,12 +82,15 @@ export default function HosteleriaPage() {
                 </div>
                 <p className="text-ei-accent text-sm font-bold uppercase tracking-widest">Hostelería</p>
               </div>
-              <h1 className="text-4xl md:text-5xl font-black text-ei-text leading-tight mb-5">
-                Reservas, reseñas y fidelización{' '}
-                <span className="text-gradient">sin levantar el teléfono</span>
+              <h1 className="text-4xl md:text-5xl font-black text-ei-text leading-tight mb-4">
+                Restaurantes, hoteles y Airbnb{' '}
+                <span className="text-gradient">sin gestión manual</span>
               </h1>
-              <p className="text-ei-muted text-lg leading-relaxed mb-8">
-                Tu equipo pasa horas gestionando reservas, respondiendo reseñas y enviando newsletters que nunca se escriben. Mientras tanto, las mesas se quedan vacías entre semana.
+              <p className="text-ei-muted text-lg leading-relaxed mb-3">
+                En hostelería el tiempo vale dinero y la atención al cliente no para. Reservas, check-ins, reseñas, fidelización — todo eso puede funcionar solo mientras tu equipo se centra en lo que importa: la experiencia del cliente.
+              </p>
+              <p className="text-ei-muted text-sm leading-relaxed mb-8">
+                Trabajamos con <span className="text-ei-text font-medium">restaurantes, bares, hoteles, apartamentos turísticos y alojamientos en Airbnb y Booking</span>. Cada automatización se adapta al tipo de negocio.
               </p>
               <Link
                 href="/contacto"
@@ -71,7 +100,7 @@ export default function HosteleriaPage() {
               </Link>
             </div>
             <div className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.15)]">
-              <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-5">Qué incluye</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-5">Qué automatizamos</p>
               <ul className="flex flex-col gap-3">
                 {benefits.map((b, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-ei-muted">
@@ -85,17 +114,42 @@ export default function HosteleriaPage() {
         </div>
       </section>
 
+      {/* Restaurantes */}
       <section className="section-padding bg-[#080a0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-ei-text mb-4">Problemas que resolvemos</h2>
-            <p className="text-ei-muted max-w-lg mx-auto">
-              Restaurantes, hoteles, bares y cafeterías. Cada automatización ataca un problema concreto del sector.
+          <div className="mb-10">
+            <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-2">Restaurantes y bares</p>
+            <h2 className="text-3xl font-black text-ei-text mb-2">Llena más mesas, fideliza más clientes</h2>
+            <p className="text-ei-muted text-sm max-w-lg">
+              Los no-shows, las reseñas sin responder y los clientes que no vuelven son problemas que tienen solución directa con automatización.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {pain_points.map((item, i) => (
+            {restaurantePainPoints.map((item, i) => (
               <div key={i} className="bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.1)]">
+                <p className="text-xs font-bold uppercase tracking-widest text-ei-muted mb-1">Problema</p>
+                <p className="text-ei-text font-bold mb-3">{item.problem}</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-1">Solución</p>
+                <p className="text-ei-muted text-sm leading-relaxed">{item.solution}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hoteles y Airbnb */}
+      <section className="section-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-2">Hoteles, apartamentos y Airbnb</p>
+            <h2 className="text-3xl font-black text-ei-text mb-2">Gestión multicanal sin caos</h2>
+            <p className="text-ei-muted text-sm max-w-lg">
+              Booking, Airbnb, tu web directa. Sincronizar calendarios, gestionar llegadas y pedir reseñas no debería consumir horas de tu día.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {hotelPainPoints.map((item, i) => (
+              <div key={i} className="bg-[#080a0e] rounded-xl p-6 border border-[rgba(0,194,203,0.1)]">
                 <p className="text-xs font-bold uppercase tracking-widest text-ei-muted mb-1">Problema</p>
                 <p className="text-ei-text font-bold mb-3">{item.problem}</p>
                 <p className="text-xs font-bold uppercase tracking-widest text-ei-accent mb-1">Solución</p>
@@ -108,9 +162,9 @@ export default function HosteleriaPage() {
 
       <section className="pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-black text-ei-text mb-4">¿Listo para llenar más mesas?</h2>
+          <h2 className="text-3xl font-black text-ei-text mb-4">¿Tienes un restaurante, hotel o alojamiento turístico?</h2>
           <p className="text-ei-muted mb-8">
-            15 minutos de llamada. Te contamos exactamente qué automatizaríamos en tu negocio y el impacto esperado.
+            15 minutos de llamada. Te contamos exactamente qué automatizaríamos en tu negocio y el impacto esperado en reservas, reseñas y fidelización.
           </p>
           <Link
             href="/contacto"
