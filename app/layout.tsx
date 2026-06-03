@@ -75,6 +75,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
+      <head>
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.fontshare.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com; font-src 'self' https://api.fontshare.com; img-src 'self' data: https:; connect-src 'self' https://n8n.emporium-ia.es; frame-ancestors 'none';" />
+      </head>
       <body className="bg-ei-dark text-ei-text font-satoshi antialiased cursor-none">
         <CustomCursor />
         <ScrollProgress />

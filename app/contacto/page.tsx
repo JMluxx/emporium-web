@@ -3,8 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, Phone, MapPin, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react'
-
-const WEBHOOK_URL = 'https://n8n.emporium-ia.es/webhook/emporium-leads'
+import { sendLead, canSubmit } from '@/lib/webhook'
 
 const SECTORS = [
   { label: 'Inmobiliario', emoji: '🏠' },
@@ -57,7 +56,7 @@ export default function ContactoPage() {
     if (!form.name.trim()) e.name = 'El nombre es obligatorio'
     if (!form.email.trim()) {
       e.email = 'El email es obligatorio'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    } else if (!/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(form.email.trim())) {
       e.email = 'Introduce un email válido'
     }
     setErrors(e)
@@ -66,26 +65,23 @@ export default function ContactoPage() {
 
   const handleSubmit = async () => {
     if (!validateStep2()) return
+    if (!canSubmit()) {
+      setStatus('error')
+      setErrors({ email: 'Ya hemos recibido tu solicitud. En breve contactamos contigo.' })
+      return
+    }
     setStatus('sending')
-    try {
-      const res = await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          sector: form.sector,
-          problem: form.problem,
-          source: 'Formulario',
-        }),
-      })
-      if (res.ok) {
-        setStatus('sent')
-        go(3)
-      } else {
-        setStatus('error')
-      }
-    } catch {
+    const result = await sendLead({
+      name: form.name,
+      email: form.email,
+      sector: form.sector,
+      problem: form.problem,
+      source: 'Formulario',
+    })
+    if (result === 'ok') {
+      setStatus('sent')
+      go(3)
+    } else {
       setStatus('error')
     }
   }
