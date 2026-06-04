@@ -26,7 +26,7 @@ const plans = [
       'Integración con hasta 2 herramientas',
       'Puesta en marcha en ~1 semana (tiempo medio)',
       '1 mes de Plan de Continuidad incluido',
-      'Plan de Continuidad obligatorio desde 49€/mes tras el primer mes',
+      'Plan de Continuidad obligatorio de 69–99€/mes tras el primer mes',
       'Documentación del proceso',
     ],
     examples: 'Recordatorios de cita por WhatsApp, envío automático de facturas, notificaciones internas.',
@@ -43,7 +43,7 @@ const plans = [
       'Chatbot o agente IA incluido',
       'Puesta en marcha en ~1-2 semanas (tiempo medio)',
       '3 meses de Plan de Continuidad incluidos',
-      'Plan de Continuidad obligatorio desde 99€/mes tras los 3 meses',
+      'Plan de Continuidad obligatorio de 119–179€/mes tras los 3 meses',
       'Panel de seguimiento básico',
     ],
     examples: 'Cualificación automática de leads + CRM + seguimiento, gestión de agenda + lista de espera + seguimiento post-visita.',
@@ -60,7 +60,7 @@ const plans = [
       'Agentes IA con lógica de negocio avanzada',
       'Formación al equipo incluida',
       '6 meses de Plan de Continuidad incluidos',
-      'Plan de Continuidad obligatorio desde 179€/mes tras los 6 meses',
+      'Plan de Continuidad obligatorio de 189–499€/mes tras los 6 meses',
       'Reuniones de seguimiento mensuales',
     ],
     examples: 'Automatización completa del proceso comercial, integración de sistemas heredados, infraestructura de datos.',
@@ -87,7 +87,7 @@ export default function PreciosPage() {
               {
                 '@type': 'Question',
                 name: '¿Cómo se calcula el Plan de Continuidad?',
-                acceptedAnswer: { '@type': 'Answer', text: 'Se calcula en función de tres factores: número de workflows activos, número de integraciones con herramientas externas y criticidad del proceso. Los rangos habituales son 49–79€/mes para Starter, 99–149€/mes para Growth y desde 179€/mes para Custom.' },
+                acceptedAnswer: { '@type': 'Answer', text: 'Se calcula en función de tres factores: número de workflows activos, número de integraciones con herramientas externas y criticidad del proceso. Los rangos habituales son 69–99€/mes para Starter, 119–179€/mes para Growth y 189–499€/mes para Custom.' },
               },
               {
                 '@type': 'Question',
@@ -231,9 +231,9 @@ export default function PreciosPage() {
             <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-5">Rangos orientativos</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { plan: 'Starter', range: '49 – 79€/mes', detail: '1 workflow · hasta 2 integraciones · proceso estándar' },
-                { plan: 'Growth', range: '99 – 149€/mes', detail: 'Hasta 3 workflows · CRM/ERP · chatbot activo' },
-                { plan: 'Custom', range: 'Desde 179€/mes', detail: 'Múltiples workflows · integraciones complejas · procesos críticos' },
+                { plan: 'Starter', range: '69 – 99€/mes', detail: '1 workflow · hasta 2 integraciones · proceso estándar' },
+                { plan: 'Growth', range: '119 – 179€/mes', detail: 'Hasta 3 workflows · CRM/ERP · chatbot activo' },
+                { plan: 'Custom', range: '189 – 499€/mes', detail: 'Múltiples workflows · integraciones complejas · procesos críticos' },
               ].map((item, i) => (
                 <div key={i} className="bg-[rgba(0,194,203,0.04)] rounded-xl p-5 border border-[rgba(0,194,203,0.1)]">
                   <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-1">{item.plan}</p>

@@ -6,11 +6,11 @@ import { Plus } from 'lucide-react'
 const faqs = [
   {
     q: '¿Hay cuotas mensuales?',
-    a: 'Sí. Cada plan incluye un periodo de continuidad desde el primer día (1 mes en Starter, 3 en Growth, 6 en Custom). Pasado ese periodo, el Plan de Continuidad es obligatorio para mantener las automatizaciones en producción. Las APIs cambian, las herramientas se actualizan, los tokens expiran — sin alguien que lo controle, algo acaba fallando. El coste mensual depende de la complejidad de tu caso y se fija antes de empezar.',
+    a: 'Sí. Cada plan incluye un periodo de continuidad desde el primer día (1 mes en Starter, 3 en Growth, 6 en Custom). Pasado ese periodo, el Plan de Continuidad es obligatorio para mantener las automatizaciones en producción. Las APIs cambian, las herramientas se actualizan, los tokens expiran — sin alguien que lo controle, algo acaba fallando. El coste mensual va de 69 a 99€ en Starter, de 119 a 179€ en Growth y de 189 a 499€ en Custom, según complejidad. Se fija antes de empezar.',
   },
   {
     q: '¿Cómo se calcula el coste del Plan de Continuidad?',
-    a: 'Se calcula en función de tres factores: el número de workflows activos (cada proceso automatizado que está corriendo), el número de integraciones con herramientas externas (cada API conectada añade superficie de fallo potencial), y la criticidad del proceso (no es lo mismo que falle un informe semanal que la atención al cliente 24/7 o la facturación automática). A partir de ahí se estima el tiempo de revisión y monitorización mensual real. Los rangos habituales son 49–79€/mes para Starter, 99–149€/mes para Growth y desde 179€/mes para Custom.',
+    a: 'Se calcula en función de tres factores: el número de workflows activos (cada proceso automatizado que está corriendo), el número de integraciones con herramientas externas (cada API conectada añade superficie de fallo potencial), y la criticidad del proceso (no es lo mismo que falle un informe semanal que la atención al cliente 24/7 o la facturación automática). A partir de ahí se estima el tiempo de revisión y monitorización mensual real. Los rangos habituales son 69–99€/mes para Starter, 119–179€/mes para Growth y 189–499€/mes para Custom.',
   },
   {
     q: '¿Qué incluye el Plan de Continuidad?',
