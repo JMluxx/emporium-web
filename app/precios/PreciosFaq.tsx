@@ -6,11 +6,19 @@ import { Plus } from 'lucide-react'
 const faqs = [
   {
     q: '¿Hay cuotas mensuales?',
-    a: 'No obligatoriamente. El precio de los planes es un pago único por implementación. El mantenimiento mensual es opcional y se acuerda por separado si lo necesitas. La mayoría de clientes no lo contratan hasta que ven que quieren añadir más automatizaciones.',
+    a: 'Sí. Cada plan incluye un periodo de continuidad desde el primer día (1 mes en Starter, 3 en Growth, 6 en Custom). Pasado ese periodo, el Plan de Continuidad es obligatorio para mantener las automatizaciones en producción. Las APIs cambian, las herramientas se actualizan, los tokens expiran — sin alguien que lo controle, algo acaba fallando. El coste mensual depende de la complejidad de tu caso y se fija antes de empezar.',
+  },
+  {
+    q: '¿Cómo se calcula el coste del Plan de Continuidad?',
+    a: 'Se calcula en función de tres factores: el número de workflows activos (cada proceso automatizado que está corriendo), el número de integraciones con herramientas externas (cada API conectada añade superficie de fallo potencial), y la criticidad del proceso (no es lo mismo que falle un informe semanal que la atención al cliente 24/7 o la facturación automática). A partir de ahí se estima el tiempo de revisión y monitorización mensual real. Los rangos habituales son 49–79€/mes para Starter, 99–149€/mes para Growth y desde 179€/mes para Custom.',
+  },
+  {
+    q: '¿Qué incluye el Plan de Continuidad?',
+    a: 'Monitorización proactiva de todos los workflows activos, corrección de errores cuando algo falla, adaptación cuando una herramienta actualiza su API o cambia su estructura, ajustes menores sin coste adicional y una revisión mensual del rendimiento. No es soporte reactivo por si se rompe algo — es garantizar que todo sigue funcionando sin que tengas que preocuparte.',
   },
   {
     q: '¿Qué pasa si la automatización no funciona como esperaba?',
-    a: 'El soporte incluido en cada plan cubre ajustes y correcciones. Si el resultado no cumple lo acordado en el presupuesto, lo arreglamos sin coste adicional. Siempre trabajamos con un alcance definido por escrito antes de empezar — sin sorpresas.',
+    a: 'El periodo de continuidad incluido en cada plan cubre ajustes y correcciones. Si el resultado no cumple lo acordado en el presupuesto, lo arreglamos sin coste adicional. Siempre trabajamos con un alcance definido por escrito antes de empezar — sin sorpresas.',
   },
   {
     q: '¿Puedo empezar con Starter y crecer después?',
@@ -25,8 +33,8 @@ const faqs = [
     a: 'Starter: 1 semana. Growth: 1-2 semanas. Custom: depende del alcance. Desde la primera llamada hasta tener la automatización funcionando en producción, el tiempo medio es 10 días.',
   },
   {
-    q: '¿Necesito firmar un contrato largo?',
-    a: 'No. Trabajamos por proyecto, sin permanencia. Cada automatización tiene su presupuesto cerrado. Si quieres mantenimiento mensual después, es un acuerdo aparte que puedes cancelar cuando quieras.',
+    q: '¿Puedo cancelar el Plan de Continuidad?',
+    a: 'Sí, con 30 días de preaviso. Si decides cancelar, las automatizaciones seguirán funcionando mientras no haya cambios en las herramientas conectadas — pero sin nadie que las mantenga, cualquier actualización de una API o cambio en una herramienta puede dejarlas inoperativas sin que te enteres. Es una decisión tuya, pero queremos que la tomes con esa información.',
   },
 ]
 

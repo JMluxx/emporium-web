@@ -22,8 +22,8 @@ const faqs = [
     a: 'Casi seguro que sí. Trabajamos con más de 200 integraciones: CRMs, ERPs, Google Workspace, WhatsApp Business, Outlook, HubSpot, Holded, Factorial y muchas más. Si lo usas, probablemente podemos conectarlo.',
   },
   {
-    q: '¿Necesito contratar soporte mensual después de la entrega?',
-    a: 'No es obligatorio — la automatización funciona sola una vez entregada. Lo que sí pasa con el tiempo es que querrás escalarla: añadir nuevas integraciones según crece el negocio, adaptarla si cambias de herramienta, ampliar workflows a otros procesos, u optimizarla con datos reales de uso. El soporte mensual está pensado para eso — no para que funcione, sino para que cada mes te ahorre más.',
+    q: '¿Hay algún coste mensual después de la implementación?',
+    a: 'Sí. Todos los planes incluyen un periodo de continuidad desde el inicio (entre 1 y 6 meses según el plan). Pasado ese periodo, el Plan de Continuidad es obligatorio. Las APIs cambian, las herramientas se actualizan y los workflows necesitan supervisión para seguir funcionando correctamente. El coste se calcula según el número de workflows activos, las integraciones conectadas y la criticidad del proceso — los rangos habituales van de 49 a 179€/mes. Se fija antes de empezar, sin sorpresas.',
   },
   {
     q: '¿Puedo ver cómo funciona antes de contratar?',

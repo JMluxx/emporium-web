@@ -25,7 +25,8 @@ const plans = [
       'Un workflow automatizado de principio a fin',
       'Integración con hasta 2 herramientas',
       'Puesta en marcha en ~1 semana (tiempo medio)',
-      '1 mes de soporte incluido',
+      '1 mes de Plan de Continuidad incluido',
+      'Plan de Continuidad obligatorio desde 49€/mes tras el primer mes',
       'Documentación del proceso',
     ],
     examples: 'Recordatorios de cita por WhatsApp, envío automático de facturas, notificaciones internas.',
@@ -41,7 +42,8 @@ const plans = [
       'Integración con CRM, ERP o herramientas de gestión',
       'Chatbot o agente IA incluido',
       'Puesta en marcha en ~1-2 semanas (tiempo medio)',
-      '3 meses de soporte y ajustes incluidos',
+      '3 meses de Plan de Continuidad incluidos',
+      'Plan de Continuidad obligatorio desde 99€/mes tras los 3 meses',
       'Panel de seguimiento básico',
     ],
     examples: 'Cualificación automática de leads + CRM + seguimiento, gestión de agenda + lista de espera + seguimiento post-visita.',
@@ -57,7 +59,8 @@ const plans = [
       'Integraciones complejas (ERP, APIs propias, bases de datos)',
       'Agentes IA con lógica de negocio avanzada',
       'Formación al equipo incluida',
-      '6 meses de soporte prioritario',
+      '6 meses de Plan de Continuidad incluidos',
+      'Plan de Continuidad obligatorio desde 179€/mes tras los 6 meses',
       'Reuniones de seguimiento mensuales',
     ],
     examples: 'Automatización completa del proceso comercial, integración de sistemas heredados, infraestructura de datos.',
@@ -79,7 +82,12 @@ export default function PreciosPage() {
               {
                 '@type': 'Question',
                 name: '¿Hay cuotas mensuales?',
-                acceptedAnswer: { '@type': 'Answer', text: 'No obligatoriamente. El precio de los planes es un pago único por implementación. El mantenimiento mensual es opcional y se acuerda por separado si lo necesitas.' },
+                acceptedAnswer: { '@type': 'Answer', text: 'Sí. Cada plan incluye un periodo de continuidad desde el inicio (1 mes en Starter, 3 en Growth, 6 en Custom). Pasado ese periodo, el Plan de Continuidad es obligatorio para mantener las automatizaciones en producción. El coste mensual se calcula según workflows activos, integraciones y criticidad del proceso, y se fija antes de empezar.' },
+              },
+              {
+                '@type': 'Question',
+                name: '¿Cómo se calcula el Plan de Continuidad?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Se calcula en función de tres factores: número de workflows activos, número de integraciones con herramientas externas y criticidad del proceso. Los rangos habituales son 49–79€/mes para Starter, 99–149€/mes para Growth y desde 179€/mes para Custom.' },
               },
               {
                 '@type': 'Question',
@@ -177,7 +185,64 @@ export default function PreciosPage() {
               <span className="text-ei-text font-semibold">Todos los precios y tiempos son orientativos.</span>{' '}
               Cada proyecto es diferente: el coste final depende de la complejidad, las integraciones necesarias y el alcance acordado. Los plazos de entrega son tiempos medios — tu caso puede ser más rápido o requerir algo más de margen. Siempre recibirás un presupuesto cerrado y un plazo concreto antes de empezar.
             </p>
-            <p className="text-ei-muted/60 text-xs mt-2">Precios con IVA incluido · Mantenimiento mensual opcional</p>
+            <p className="text-ei-muted/60 text-xs mt-2">Precios con IVA incluido · Plan de Continuidad obligatorio tras el periodo incluido · Cancelable con 30 días de preaviso</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Plan de Continuidad */}
+      <section className="section-padding bg-[#080a0e]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-ei-accent text-sm font-bold uppercase tracking-widest mb-3">Plan de Continuidad</p>
+            <h2 className="text-3xl md:text-4xl font-black text-ei-text mb-4">¿Cómo se calcula el soporte mensual?</h2>
+            <p className="text-ei-muted max-w-2xl mx-auto">
+              Las automatizaciones funcionan solas — hasta que una API cambia, una herramienta se actualiza o un token expira. El Plan de Continuidad garantiza que todo siga funcionando sin que tengas que preocuparte.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            {[
+              {
+                label: '01',
+                title: 'Workflows activos',
+                desc: 'Cada proceso automatizado en producción. Más workflows, más superficie a monitorizar y mantener.',
+              },
+              {
+                label: '02',
+                title: 'Integraciones externas',
+                desc: 'Cada API conectada (CRM, WhatsApp, facturación, ERP...) es un punto que puede romperse cuando el proveedor actualiza su plataforma.',
+              },
+              {
+                label: '03',
+                title: 'Criticidad del proceso',
+                desc: 'No es lo mismo que falle un informe semanal que la atención al cliente 24/7 o la facturación automática. Los procesos críticos requieren respuesta más rápida.',
+              },
+            ].map((item, i) => (
+              <div key={i} className="bg-ei-card rounded-xl p-6 border border-[rgba(0,194,203,0.12)] relative">
+                <span className="text-5xl font-black text-[rgba(0,194,203,0.07)] absolute top-4 right-5 leading-none select-none">{item.label}</span>
+                <h3 className="text-ei-text font-bold text-base mb-2">{item.title}</h3>
+                <p className="text-ei-muted text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-ei-card rounded-2xl p-8 border border-[rgba(0,194,203,0.15)]">
+            <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-5">Rangos orientativos</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { plan: 'Starter', range: '49 – 79€/mes', detail: '1 workflow · hasta 2 integraciones · proceso estándar' },
+                { plan: 'Growth', range: '99 – 149€/mes', detail: 'Hasta 3 workflows · CRM/ERP · chatbot activo' },
+                { plan: 'Custom', range: 'Desde 179€/mes', detail: 'Múltiples workflows · integraciones complejas · procesos críticos' },
+              ].map((item, i) => (
+                <div key={i} className="bg-[rgba(0,194,203,0.04)] rounded-xl p-5 border border-[rgba(0,194,203,0.1)]">
+                  <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-1">{item.plan}</p>
+                  <p className="text-2xl font-black text-ei-text mb-2">{item.range}</p>
+                  <p className="text-ei-muted text-xs leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-ei-muted/60 text-xs mt-5 text-center">El coste exacto se fija en el presupuesto antes de empezar · Cancelable con 30 días de preaviso</p>
           </div>
         </div>
       </section>
