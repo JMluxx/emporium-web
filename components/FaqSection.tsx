@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: '¿Hay algún coste mensual después de la implementación?',
-    a: 'Sí. Todos los planes incluyen un periodo de continuidad desde el inicio (entre 1 y 6 meses según el plan). Pasado ese periodo, el Plan de Continuidad es obligatorio. Las APIs cambian, las herramientas se actualizan y los workflows necesitan supervisión para seguir funcionando correctamente. El coste se calcula según el número de workflows activos, las integraciones conectadas y la criticidad del proceso — los rangos habituales van de 69–99€/mes en Starter, 119–179€/mes en Growth y 189–499€/mes en Custom. Se fija antes de empezar, sin sorpresas.',
+    a: 'Sí. Todos los planes incluyen un periodo de continuidad desde el inicio (entre 1 y 6 meses según el plan). Pasado ese periodo, el Plan de Continuidad es obligatorio. Las APIs cambian, las herramientas se actualizan y los workflows necesitan supervisión para seguir funcionando correctamente. El coste se calcula según el número de workflows activos, las integraciones conectadas y la criticidad del proceso — los rangos habituales van de 69–99€/mes en Starter, 119–179€/mes en Growth y desde 189€/mes en Custom. Se fija antes de empezar, sin sorpresas.',
   },
   {
     q: '¿Puedo ver cómo funciona antes de contratar?',

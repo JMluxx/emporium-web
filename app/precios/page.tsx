@@ -60,7 +60,7 @@ const plans = [
       'Agentes IA con lógica de negocio avanzada',
       'Formación al equipo incluida',
       '6 meses de Plan de Continuidad incluidos',
-      'Plan de Continuidad obligatorio de 189–499€/mes tras los 6 meses',
+      'Plan de Continuidad obligatorio desde 189€/mes tras los 6 meses',
       'Reuniones de seguimiento mensuales',
     ],
     examples: 'Automatización completa del proceso comercial, integración de sistemas heredados, infraestructura de datos.',
@@ -87,7 +87,7 @@ export default function PreciosPage() {
               {
                 '@type': 'Question',
                 name: '¿Cómo se calcula el Plan de Continuidad?',
-                acceptedAnswer: { '@type': 'Answer', text: 'Se calcula en función de tres factores: número de workflows activos, número de integraciones con herramientas externas y criticidad del proceso. Los rangos habituales son 69–99€/mes para Starter, 119–179€/mes para Growth y 189–499€/mes para Custom.' },
+                acceptedAnswer: { '@type': 'Answer', text: 'Se calcula en función de tres factores: número de workflows activos, número de integraciones con herramientas externas y criticidad del proceso. Los rangos habituales son 69–99€/mes para Starter, 119–179€/mes para Growth y desde 189€/mes para Custom.' },
               },
               {
                 '@type': 'Question',
@@ -233,7 +233,7 @@ export default function PreciosPage() {
               {[
                 { plan: 'Starter', range: '69 – 99€/mes', detail: '1 workflow · hasta 2 integraciones · proceso estándar' },
                 { plan: 'Growth', range: '119 – 179€/mes', detail: 'Hasta 3 workflows · CRM/ERP · chatbot activo' },
-                { plan: 'Custom', range: '189 – 499€/mes', detail: 'Múltiples workflows · integraciones complejas · procesos críticos' },
+                { plan: 'Custom', range: 'Desde 189€/mes', detail: 'Múltiples workflows · integraciones complejas · procesos críticos' },
               ].map((item, i) => (
                 <div key={i} className="bg-[rgba(0,194,203,0.04)] rounded-xl p-5 border border-[rgba(0,194,203,0.1)]">
                   <p className="text-ei-accent text-xs font-bold uppercase tracking-widest mb-1">{item.plan}</p>
